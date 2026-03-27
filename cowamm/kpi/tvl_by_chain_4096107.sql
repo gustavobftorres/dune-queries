@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] TVL by day per chain
+-- query link: https://dune.com/queries/4096107
+
+
 -- This query computes the total TVL evolution per day for all CoW AMM pools for a given chain
 -- Parameters
 --  {{blockchain}} - the target chain

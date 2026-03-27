@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM kpis
+-- query link: https://dune.com/queries/4340428
+
+
 -- Computes volume, tvl and APR for CoW AMM pools
 -- APR is measured as the fees earned per $ invested, over the last 24 hours, projected over 1 year
 -- Parameters:

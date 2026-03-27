@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Surplus per day (CoW AMM)
+-- query link: https://dune.com/queries/4059213
+
+
 -- Computes the surplus per $100 tvl per day (aka its invariant growth) for a CoW AMM.
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

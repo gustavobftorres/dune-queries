@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Largest Uni Swap style pools
+-- query link: https://dune.com/queries/4303563
+
+
 -- Finds the largest Uni Style pools (Pancake, Sushi, Uni) and their TVLs
 -- Parameters:
 --  {{blockchain}}: The blockchain to query

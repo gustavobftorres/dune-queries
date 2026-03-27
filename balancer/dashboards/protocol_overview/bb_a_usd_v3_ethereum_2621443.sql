@@ -1,0 +1,7 @@
+-- part of a query repo
+-- query name: bb-a-USD v3 (ETHEREUM)
+-- query link: https://dune.com/queries/2621443
+
+
+SELECT * FROM query_2775403 WHERE poolID in (0xa1697f9af0875b63ddc472d6eebada8c1fab85680000000000000000000004f9,
+0xcbfa4532d8b2ade2c261d3dd5ef2a2284f7926920000000000000000000004fa, 0x6667c6fa9f2b3fc1cc8d85320b62703d938e43850000000000000000000004fb)

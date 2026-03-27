@@ -66,6 +66,9 @@ def main():
         print("No query IDs found in queries.yml")
         return
 
+    success_count = 0
+    failed_ids: list[int] = []
+
     for entry in entries:
         if isinstance(entry, dict):
             qid = entry["id"]
@@ -74,8 +77,17 @@ def main():
             qid = int(entry)
             category = ""
 
-        query = dune.get_query(qid)
+        try:
+            query = dune.get_query(qid)
+        except Exception as exc:
+            # Dune may return non-query payloads for missing/private/deleted queries.
+            # dune-client then raises parsing errors (e.g. KeyError: 'query_id').
+            print(f"  SKIP: query {qid} failed to fetch ({type(exc).__name__}: {exc})")
+            failed_ids.append(qid)
+            continue
+
         print(f"PROCESSING: query {query.base.query_id}, {query.base.name}")
+        success_count += 1
 
         if HEADER_MARKER in query.sql and category == "":
             print(f"  WARNING: query {qid} may already be managed in another repo")
@@ -107,7 +119,17 @@ def main():
                 else:
                     f.write(build_header(query.base.name, qid) + query.sql)
 
-    print(f"\nDone. Processed {len(entries)} queries.")
+    print(f"\nDone. Total entries: {len(entries)}")
+    print(f"  Successfully fetched: {success_count}")
+    print(f"  Failed to fetch: {len(failed_ids)}")
+    if failed_ids:
+        preview = ", ".join(str(x) for x in failed_ids[:30])
+        if len(failed_ids) > 30:
+            preview += ", ..."
+        print(f"  Failed query IDs: {preview}")
+
+    if success_count == 0:
+        raise SystemExit("No queries fetched successfully. Check DUNE_API_KEY and access permissions.")
 
 
 if __name__ == "__main__":

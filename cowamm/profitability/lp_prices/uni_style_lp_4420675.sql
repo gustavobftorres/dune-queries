@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: uni_style_lp_info
+-- query link: https://dune.com/queries/4420675
+
+
 -- This query gets the token reserves (token0, 1, lp) of every Univ2 style pool with a CoW AMM version at the beginning of every day 
 --Parameters
 --  {{blockchain}}: The blockchain to query

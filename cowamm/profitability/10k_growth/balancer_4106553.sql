@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Balancer v2 Portfolio
+-- query link: https://dune.com/queries/4106553
+
+
 -- Computes the TVL, lp token total supply and lp token price of a uniswap pool over time
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

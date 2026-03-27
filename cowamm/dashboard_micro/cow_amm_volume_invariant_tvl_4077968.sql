@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] TVL, Volume & Surplus over time
+-- query link: https://dune.com/queries/4077968
+
+
 -- plot the tvl, surplus and volume of a pool
 -- Parameters:
 --   cow_amm: the address of the pool

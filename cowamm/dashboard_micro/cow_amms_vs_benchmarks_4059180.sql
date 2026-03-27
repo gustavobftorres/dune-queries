@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM vs Uni Pool vs Token Rebalancing
+-- query link: https://dune.com/queries/4059180
+
+
 -- Compute the evolution of performance for $10k invested in different strategies
 -- Parameters:
 --   cow_amm: the address of the pool

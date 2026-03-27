@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] HODL Portfolio
+-- query link: https://dune.com/queries/4086902
+
+
 -- Computes the balances and current value of a counterfactual portfolio that invests 10k evenly into two tokens and holds them
 -- Parameters
 --  {{token_a}} - either token

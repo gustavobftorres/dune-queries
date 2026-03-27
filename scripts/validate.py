@@ -15,11 +15,12 @@ Usage:
 import os
 import re
 import sys
+from pathlib import Path
 
 import yaml
 
-REPO_ROOT = os.path.join(os.path.dirname(__file__), "..")
-QUERIES_YML = os.path.join(REPO_ROOT, "queries.yml")
+REPO_ROOT = str(Path(__file__).resolve().parents[1])
+QUERIES_YML = str(Path(REPO_ROOT) / "queries.yml")
 HEADER_MARKER = "-- part of a query repo"
 FILENAME_PATTERN = re.compile(r"^.+_(\d+)\.sql$")
 DEPENDENCY_PATTERN = re.compile(r"query_(\d+)")
@@ -28,13 +29,18 @@ DEPENDENCY_PATTERN = re.compile(r"query_(\d+)")
 def collect_sql_files(root: str) -> list[tuple[str, str, int]]:
     """Return list of (full_path, filename, query_id) for all .sql files."""
     results = []
+    root_path = Path(root).resolve()
     for dirpath, _, filenames in os.walk(root):
-        if ".git" in dirpath or "scripts" in dirpath:
+        dir_parts = set(Path(dirpath).resolve().parts)
+        if ".git" in dir_parts or "scripts" in dir_parts:
             continue
         for f in filenames:
             if not f.endswith(".sql"):
                 continue
             full = os.path.join(dirpath, f)
+            # Keep the validator scoped to repository SQL, avoid virtualenv/site packages.
+            if not Path(full).resolve().is_relative_to(root_path):
+                continue
             match = FILENAME_PATTERN.match(f)
             qid = int(match.group(1)) if match else -1
             results.append((full, f, qid))

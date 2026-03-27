@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: uni_v2_amm_lp_and_tvl
+-- query link: https://dune.com/queries/4047194
+
+
 -- Computes the TVL, lp token total supply and lp token price of a uniswap pool over time
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

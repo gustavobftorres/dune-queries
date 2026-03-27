@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Balancer CoW AMMs
+-- query link: https://dune.com/queries/3959044
+
+
 -- This is part of a base query for monitoring Balancer CoW AMMs
 -- It is then materialized for reuse in other queries and optimized performance
 -- It indexes all Balancer CoW AMMs on ethereum, gnosis, arbitrum and base

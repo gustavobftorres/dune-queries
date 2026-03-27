@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM Pools w/ link
+-- query link: https://dune.com/queries/4849124
+
+
 -- Shows a summary of all CoW AMMs accross chains
 
 with recent as (
