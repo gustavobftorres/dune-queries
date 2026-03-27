@@ -48,6 +48,100 @@ query_ids:
   - 4814818
   - 4849124
 
+  # --- Phase 4 dependency views (imported) ---
+  - id: 1541516
+    category: views
+  - id: 1747157
+    category: views
+  - id: 2406726
+    category: views
+  - id: 2407001
+    category: views
+  - id: 2417365
+    category: views
+  - id: 2452021
+    category: views
+  - id: 2477497
+    category: views
+  - id: 2511140
+    category: views
+  - id: 2977657
+    category: views
+  - id: 3091308
+    category: views
+  - id: 3094283
+    category: views
+  - id: 3094743
+    category: views
+  - id: 3150087
+    category: views
+  - id: 3779014
+    category: views
+  - id: 3781645
+    category: views
+  - id: 3859543
+    category: views
+  - id: 4025739
+    category: views
+  - id: 4428137
+    category: views
+  - id: 4527783
+    category: views
+  - id: 4717948
+    category: views
+  - id: 4844142
+    category: views
+  - id: 5044493
+    category: views
+  - id: 5057796
+    category: views
+  - id: 5169345
+    category: views
+  - id: 5651828
+    category: views
+  - id: 5825281
+    category: views
+  - id: 6521186
+    category: views
+  - id: 6521379
+    category: views
+  - id: 6681074
+    category: views
+  - id: 6753954
+    category: views
+  - id: 6754023
+    category: views
+
+  # --- Phase 4 dependency views (imported, API fallback) ---
+  - id: 2972525
+    category: views
+  - id: 3333356
+    category: views
+  - id: 4021555
+    category: views
+  - id: 4031637
+    category: views
+  - id: 4056263
+    category: views
+  - id: 5143758
+    category: views
+  - id: 5143848
+    category: views
+  - id: 5875552
+    category: views
+
+  # --- Phase 4 dependency views (imported, final) ---
+  - id: 4021306
+    category: views
+
+  # --- Phase 4 dependency views (imported, recursive) ---
+  - id: 4021257
+    category: views
+
+  # --- Phase 4 dependency views (imported, recursive) ---
+  - id: 4021644
+    category: views
+
   # --- Balancer core (Phase 2: Discovery) ---
   # Imported from scraping/queries.workspace.snippet.yml
   - id: 20499
