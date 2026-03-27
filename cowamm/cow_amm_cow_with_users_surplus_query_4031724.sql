@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM: Coincidence of Wants Reward
+-- query link: https://dune.com/queries/4031724
+
+
 -- This query computes how much surplus has been provided to CoW AMMs, when trading with other user orders
 -- as part of a CoW. For that, a CoW detector query is used (4025739(). Finally, the query computes the 
 -- distribution of an amount {{cow_budget}} of COW tokens to solvers, proportionally to the surplus generated

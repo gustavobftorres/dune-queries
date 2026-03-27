@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Swap Fee per day - Uni v2
+-- query link: https://dune.com/queries/4060136
+
+
 -- Computes the swap fee per $100 tvl for each day (aka its invariant growth) for a Uni v2 pool.
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

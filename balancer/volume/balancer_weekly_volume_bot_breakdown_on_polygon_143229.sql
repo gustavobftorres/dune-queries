@@ -1,0 +1,89 @@
+-- part of a query repo
+-- query name: Balancer Weekly Volume (Bot Breakdown) on Polygon
+-- query link: https://dune.com/queries/143229
+
+
+-- Volume (source breakdown) per week
+-- Visualization: bar chart (stacked)
+
+WITH prices AS (
+        SELECT date_trunc('day', minute) AS day, contract_address AS token, decimals, AVG(price) AS price
+        FROM prices.usd
+        GROUP BY 1, 2, 3
+    ),
+    
+    swaps AS (
+        SELECT 
+            date_trunc('week', block_time) AS week,
+            tx_to AS channel,
+            COUNT(*) AS txns,
+            SUM(usd_amount) AS volume
+        FROM dex.trades 
+        WHERE project = 'Balancer'
+        AND ('{{1. Pool ID}}' = 'All' OR exchange_contract_address = CONCAT('\', SUBSTRING('{{1. Pool ID}}', 2))::bytea)
+        GROUP BY 1, 2
+    ),
+    
+     manual_labels AS (
+        SELECT
+            address,  
+            name
+        FROM dune_user_generated.balancer_manual_labels
+        WHERE "type" = 'balancer_source'
+        AND "author" = 'balancerlabs'
+    ),
+    
+    arb_bots AS (
+        SELECT
+            address,  
+            name
+        FROM dune_user_generated.balancer_arb_bots
+        WHERE "name" = 'arbitrage bot'
+        AND "author" = 'balancerlabs'
+        AND address NOT IN (SELECT address from manual_labels)
+    ),
+    
+    distinct_labels AS (
+        SELECT * FROM manual_labels
+        union all
+        SELECT * FROM arb_bots
+    ),
+    
+    channels AS (
+        SELECT channel, SUM(COALESCE(volume, 00)) AS volume
+        FROM swaps 
+        GROUP BY 1
+    ),
+        
+    heavy_traders AS (
+        SELECT
+            channel, week, txns AS daily_trades
+        FROM swaps
+        WHERE txns >= 100
+    ),
+    
+    channel_classifier AS (
+        SELECT c.channel, l.name,
+            CASE WHEN l.name IS NOT NULL THEN l.name
+            WHEN c.channel IN (SELECT channel FROM heavy_traders) THEN 'heavy trader'
+            WHEN c.channel IN (select channel from channels where volume is not null order by volume desc limit 10) THEN CONCAT(SUBSTRING(concat('0x', encode(c.channel, 'hex')), 0, 13), '...')
+            ELSE 'others' END AS class
+        FROM channels c
+        LEFT JOIN distinct_labels l ON l.address = c.channel
+    )
+    
+SELECT * FROM (
+    SELECT
+        week,
+        s.channel AS "Address",
+        CONCAT('<a target="_blank" href="https://polygonscan.com/address/0', SUBSTRING(s.channel::text, 2, 42), '">', 'https://polygonscan.com/address/0', SUBSTRING(s.channel::text, 2, 42), '</a>') AS etherscan,
+        s.txns AS trades,
+        sum(volume) AS "Volume",
+        ROW_NUMBER() OVER (PARTITION BY week ORDER BY sum(volume) DESC NULLS LAST) AS position
+    FROM swaps s 
+    INNER JOIN channel_classifier c ON s.channel = c.channel
+    WHERE c.class = 'arbitrage bot'
+    GROUP BY 1, 2, 3, 4
+    ORDER BY week DESC, "Volume" DESC
+) ranking
+WHERE position <= 5

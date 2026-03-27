@@ -1,0 +1,12 @@
+.venv/
+storage_state.json
+*.pyc
+__pycache__/
+dune_cookies.json
+dune_cookies.example.json
+cookies.json
+
+queries.workspace.snippet.yml
+query_ids.txt
+
+/debug

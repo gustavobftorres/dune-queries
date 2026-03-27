@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Surplus per day (Balancer)
+-- query link: https://dune.com/queries/4106329
+
+
 -- Computes the swap fee per $100 tvl for each day (aka its invariant growth) for a Balancer pool.
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

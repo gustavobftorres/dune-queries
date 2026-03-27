@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] CoW AMM Surplus vs Uni Fee (comparison)
+-- query link: https://dune.com/queries/4062641
+
+
 -- This query computes the relative surplus increase of a CoW AMM compared to its benchmarks.
 -- Parameters:
 --   cow_amm: the address of the pool

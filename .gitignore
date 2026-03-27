@@ -1,1 +1,4 @@
-.env
+.venv
+# Playwright session (scraping/ — never commit)
+scraping/storage_state.json
+scraping/.venv/

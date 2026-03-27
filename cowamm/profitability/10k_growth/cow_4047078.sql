@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: cow_amm_lp_and_tvl
+-- query link: https://dune.com/queries/4047078
+
+
 -- Computes the TVL, lp token total supply and lp token price of a CoW AMM pool over time
 -- Parameters
 --  {{token_a}} - either token of the desired uni pool

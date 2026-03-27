@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM vs Others
+-- query link: https://dune.com/queries/4059465
+
+
 -- Current outperformance of CoW AMM vs Uniswap and Sushiswap and TVL
 -- Parameters:
 -- cow_amm: CoW AMM address
