@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Uni Swap Style surplus and TVL
+-- query link: https://dune.com/queries/4304295
+
+
 -- Computes volume, tvl and APR for Uni Swap style pools (Uni, Pancake, Sushi)
 -- APR is measured as the fees earned per $ invested, over the last 24 hours, projected over 1 year
 -- Parameters:

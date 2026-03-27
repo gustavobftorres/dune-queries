@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] TVL by tx
+-- query link: https://dune.com/queries/4059700
+
+
 -- Computes the balances and their dollar value of all CoW AMM pools for a specific token pair at every transaction where it changed
 -- Parameters
 --  {{token_a}} - either token of the pool

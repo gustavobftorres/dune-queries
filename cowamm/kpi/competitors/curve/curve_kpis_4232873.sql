@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: curve 2 token pools surplus and volume
+-- query link: https://dune.com/queries/4232873
+
+
 -- Computes volume, tvl and APR for Curve pools
 -- APR is measured as the fees earned per $ invested, over the last 24 hours, projected over 1 year
 -- Parameters:

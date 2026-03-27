@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: cow amms tvl
+-- query link: https://dune.com/queries/4340356
+
+
 -- Computes the balances and their dollar value of all CoW AMM pools at every transaction where it changed
 -- Parameters
 --  {{blockchain}} - chain for which the query is running

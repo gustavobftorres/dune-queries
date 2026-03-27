@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM LP info
+-- query link: https://dune.com/queries/4420687
+
+
 -- This query gets all the transfers during a day for all existing CoW AMMs:
 -- Reserve tokens and lp tokens at the beginning of every day
 --Parameters
