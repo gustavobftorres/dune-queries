@@ -1,0 +1,224 @@
+-- part of a query repo
+-- query name: Migrated balancer pools labels
+-- query link: https://dune.com/queries/2771723
+
+
+WITH pools AS (
+    SELECT pool_id,
+           zip.tokens AS token_address,
+           zip.weights / pow(10, 18) AS normalized_weight,
+           symbol,
+           pool_type
+    FROM (
+        SELECT c.poolId AS pool_id,
+               t.tokens,
+               w.weights,
+               cc.symbol,
+               'WP' AS pool_type
+        FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+        INNER JOIN balancer_v2_arbitrum.WeightedPoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+        CROSS JOIN UNNEST (cc.weights) as w(weights)
+    ) zip
+
+    UNION ALL
+        
+    SELECT pool_id,
+           zip.tokens AS token_address,
+           zip.weights / pow(10, 18) AS normalized_weight,
+           symbol,
+           pool_type
+    FROM (
+        SELECT c.poolId AS pool_id,
+               t.tokens,
+               w.weights,
+               cc.symbol,
+               'WP' AS pool_type
+        FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+        INNER JOIN balancer_v2_arbitrum.WeightedPoolV2Factory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+        CROSS JOIN UNNEST (cc.normalizedWeights) as w(weights)
+    ) zip
+
+    UNION ALL
+
+    SELECT pool_id,
+           zip.tokens AS token_address,
+           zip.weights / pow(10, 18) AS normalized_weight,
+           symbol,
+           pool_type
+    FROM (
+        SELECT c.poolId AS pool_id,
+               t.tokens,
+               w.weights,
+               cc.symbol,
+               'IP' AS pool_type
+        FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+        INNER JOIN balancer_v2_arbitrum.InvestmentPoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+        CROSS JOIN UNNEST (cc.weights) as w(weights)
+    ) zip
+
+    UNION ALL
+
+    SELECT pool_id,
+           zip.tokens AS token_address,
+           zip.weights / pow(10, 18) AS normalized_weight,
+           symbol,
+           pool_type
+    FROM (
+        SELECT c.poolId AS pool_id,
+               t.tokens,
+               w.weights,
+               cc.symbol,
+               'WP2T' AS pool_type
+        FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+        INNER JOIN balancer_v2_arbitrum.WeightedPool2TokensFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+        CROSS JOIN UNNEST (cc.weights) as w(weights)
+    ) zip
+
+    UNION ALL
+
+    SELECT c.poolId AS pool_id,
+               t.tokens,
+               0 AS weights,
+               cc.symbol,
+               'SP' AS pool_type
+        FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+        INNER JOIN balancer_v2_arbitrum.StablePoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+
+
+    UNION ALL
+
+    SELECT c.poolId AS pool_id,
+        t.tokens AS token_address,
+        CAST(NULL AS DOUBLE) AS normalized_weight,
+        cc.symbol,
+        'SP' AS pool_type
+    FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+    INNER JOIN balancer_v2_arbitrum.MetaStablePoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+
+    UNION ALL
+
+    SELECT c.poolId AS pool_id,
+        t.tokens AS token_address,
+        0 AS normalized_weight, cc.symbol, 'LBP' AS pool_type
+    FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+    INNER JOIN balancer_v2_arbitrum.LiquidityBootstrappingPoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+
+    UNION ALL
+
+    SELECT c.poolId AS pool_id,
+        t.tokens AS token_address,
+        0 AS normalized_weight, cc.symbol, 'LBP' AS pool_type
+    FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+    INNER JOIN balancer_v2_arbitrum.NoProtocolFeeLiquidityBootstrappingPoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+
+    UNION ALL
+
+    SELECT c.poolId AS pool_id,
+        t.tokens AS token_address,
+        0 AS normalized_weight, cc.symbol, 'SP' AS pool_type
+    FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+    INNER JOIN balancer_v2_arbitrum.ComposableStablePoolFactory_call_create cc
+        ON c.evt_tx_hash = cc.call_tx_hash
+        AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+        CROSS JOIN UNNEST (cc.tokens) as t(tokens)
+
+    UNION ALL
+
+SELECT c.poolId AS pool_id,
+       element AS token_address,
+       CAST(NULL AS DOUBLE) AS normalized_weight,
+       cc.symbol,
+       'LP' AS pool_type
+FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+INNER JOIN balancer_v2_arbitrum.AaveLinearPoolFactory_call_create cc
+ON c.evt_tx_hash = cc.call_tx_hash
+AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+CROSS JOIN UNNEST(ARRAY[cc.mainToken, cc.wrappedToken]) AS t (element)
+
+UNION ALL
+
+SELECT c.poolId AS pool_id,
+       element AS token_address,
+       CAST(NULL AS DOUBLE) AS normalized_weight,
+       cc.symbol,
+       'LP' AS pool_type
+FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+INNER JOIN balancer_v2_arbitrum.ERC4626LinearPoolFactory_call_create cc
+ON c.evt_tx_hash = cc.call_tx_hash
+AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+CROSS JOIN UNNEST(ARRAY[cc.mainToken, cc.wrappedToken]) AS t (element)
+
+UNION ALL
+
+SELECT c.poolId AS pool_id,
+       element AS token_address,
+       CAST(NULL AS DOUBLE) AS normalized_weight,
+       cc.symbol,
+       'LP' AS pool_type
+FROM balancer_v2_arbitrum.Vault_evt_PoolRegistered c
+INNER JOIN balancer_v2_arbitrum.YearnLinearPoolFactory_call_create cc
+ON c.evt_tx_hash = cc.call_tx_hash
+AND SUBSTRING(CAST(c.poolId as varchar), 1, 42) = CAST(cc.output_0 as varchar)
+CROSS JOIN UNNEST(ARRAY[cc.mainToken, cc.wrappedToken]) AS t (element)
+
+),
+
+settings AS (
+    SELECT pool_id,
+    coalesce(t.symbol,'?') AS token_symbol,
+    normalized_weight,
+    p.symbol AS pool_symbol,
+    p.pool_type
+    FROM pools p
+    LEFT JOIN tokens.erc20 t ON p.token_address = t.contract_address
+)
+
+SELECT 
+'arbitrum' AS blockchain,
+    SUBSTRING(CAST(pool_id as varchar), 1, 42) AS address,
+    CASE
+        WHEN pool_type IN ('SP.LP.LBP') THEN lower(pool_symbol)
+        ELSE lower(concat(array_join(array_sort(array_agg(token_symbol)), '/'), ' ', array_join(array_sort(array_agg(cast(norm_weight AS varchar))), '/')))
+    END AS name,
+    'balancer_v2_pool' AS category,
+    'balancerlabs' AS contributor,
+    'query' AS source,
+    timestamp '2022-12-23' AS created_at,
+    now() AS updated_at,
+    'balancer_v2_pools_arbitrum' AS model_name,
+    'identifier' AS label_type
+FROM (
+    SELECT s1.pool_id,
+           token_symbol,
+           pool_symbol,
+           cast(100 * normalized_weight AS integer) AS norm_weight,
+           pool_type
+    FROM settings s1
+    GROUP BY s1.pool_id, token_symbol, pool_symbol, normalized_weight, pool_type
+) s
+GROUP BY pool_id, pool_symbol, pool_type
+ORDER BY 1;

@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Daily Rebalancing Portfolio
+-- query link: https://dune.com/queries/4055484
+
+
 -- Computes the balances and current value of a counterfactual portfolio that invests 10k evenly into two tokens and re-balances once a day to keep a 50:50 exposure
 -- Parameters
 --  {{token_a}} - either token

@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: volume evolution
+-- query link: https://dune.com/queries/4346160
+
+
 -- Query computes the trading volume over all CoW AMMs (matching users and rebalancing)
 
 -- Parameters:

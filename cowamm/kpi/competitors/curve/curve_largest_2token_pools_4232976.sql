@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Curve 2 token pools
+-- query link: https://dune.com/queries/4232976
+
+
 -- Finds all the curve pools with 2 tokens and their TVLs at every moment in time
 -- For every pool that is currently one of the {{number_of_pools}} largest by TVL:
 -- It returns their TVL at every moment in time

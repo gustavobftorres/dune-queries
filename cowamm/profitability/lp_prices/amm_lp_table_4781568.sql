@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: amm_lp_infos
+-- query link: https://dune.com/queries/4781568
+
+
 --Groups all the data in one table to then materialize it in a view
 --Easy to add new AMMs from there
 

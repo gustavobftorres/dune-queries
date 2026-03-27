@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: cow amms total tvl v2
+-- query link: https://dune.com/queries/3967954
+
+
 -- computes total tvl over time and the 7 day growth
 -- can be used to get the last tvl/growth in a counter for a dashboard
 
@@ -6,7 +11,7 @@ with tvl as (
         day,
         sum(value0 + value1) as tvl
     from dune.cowprotocol.result_amm_lp_infos
-    where project = 'cow_amm'
+    where project = 'cow_amm' and value0 < 1000000000 and value1 < 1000000000
     group by day
 )
 

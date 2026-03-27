@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Uniswap style pools
+-- query link: https://dune.com/queries/4420646
+
+
 -- Finds all the Uniswap style pool: Uniswap, Sushiswap, Pancakeswap
 -- Parameters
 --    {{blockchain}}

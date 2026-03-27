@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: cow amms total volume v2
+-- query link: https://dune.com/queries/3968105
+
+
 -- Query computes the trading volume over all CoW AMMs (matching users and rebalancing) and 7 day growth thereof.
 with cow_trades as (
     select

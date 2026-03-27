@@ -1,0 +1,202 @@
+-- part of a query repo
+-- query name: balancer_v2.liquidity (Dune SQL)
+-- query link: https://dune.com/queries/2747802
+
+
+-- Migrated Dune SQL Spell
+WITH pool_labels AS (
+    SELECT
+        address AS pool_id,
+        name AS pool_symbol
+    FROM labels.balancer_v2_pools_ethereum
+),
+prices AS (
+    SELECT
+        date_trunc('day', minute) AS day,
+        contract_address AS token,
+        decimals,
+        AVG(price) AS price
+    FROM prices.usd
+    WHERE blockchain = 'ethereum'
+    GROUP BY 1, 2, 3
+),
+/*dex_prices_1 AS (
+    SELECT
+        date_trunc('day', HOUR) AS day,
+        contract_address AS token,
+        approx_percentile(median_price, 0.5) AS price,
+        sum(sample_size) AS sample_size
+    FROM dex.prices
+    GROUP BY 1, 2
+    HAVING sum(sample_size) > 3
+),
+dex_prices AS (
+    SELECT
+        *,
+        LEAD(DAY, 1, NOW()) OVER (
+            PARTITION BY token
+            ORDER BY DAY
+        ) AS day_of_next_change
+    FROM dex_prices_1
+),*/
+bpt_prices AS (
+    SELECT
+        date_trunc('day', HOUR) AS day,
+        contract_address AS token,
+        approx_percentile(median_price, 0.5) AS bpt_price
+    FROM balancer_v2_ethereum.bpt_prices
+    GROUP BY 1, 2
+),
+swaps_changes AS (
+    SELECT
+        day,
+        pool_id,
+        token,
+        SUM(COALESCE(delta, 0)) AS delta
+    FROM (
+        SELECT
+            date_trunc('day', evt_block_time) AS day,
+            poolId AS pool_id,
+            tokenIn AS token,
+            CAST(amountIn AS double) AS delta
+        FROM balancer_v2_ethereum.Vault_evt_Swap
+        UNION ALL
+        SELECT
+            date_trunc('day', evt_block_time) AS day,
+            poolId AS pool_id,
+            tokenOut AS token,
+            -CAST(amountOut AS double) AS delta
+        FROM balancer_v2_ethereum.Vault_evt_Swap
+    ) swaps
+    GROUP BY 1, 2, 3
+),
+zipped_balance_changes AS (
+        SELECT
+            date_trunc('day', evt_block_time) AS day,
+            poolId AS pool_id,
+            t.tokens,
+            d.deltas,
+            p.protocolFeeAmounts
+    FROM balancer_v2_ethereum.Vault_evt_PoolBalanceChanged
+        CROSS JOIN UNNEST (tokens) WITH ORDINALITY as t(tokens,i)
+        CROSS JOIN UNNEST (deltas) WITH ORDINALITY as d(deltas,i)
+        CROSS JOIN UNNEST (protocolFeeAmounts) WITH ORDINALITY as p(protocolFeeAmounts,i)
+        WHERE t.i = d.i AND d.i = p.i
+    ORDER BY 1,2,3
+), 
+balances_changes AS (
+    SELECT
+            day,
+            pool_id,
+            tokens AS token,
+            deltas - CAST(protocolFeeAmounts as int256) AS delta
+    FROM zipped_balance_changes
+   ORDER BY 1, 2, 3
+),
+managed_changes AS (
+    SELECT
+        date_trunc('day', evt_block_time) AS day,
+        poolId AS pool_id,
+        token,
+        cashDelta + managedDelta AS delta
+    FROM balancer_v2_ethereum.Vault_evt_PoolBalanceManaged
+),
+daily_delta_balance AS (
+    SELECT
+        day,
+        pool_id,
+        token,
+        SUM(COALESCE(amount, CAST(0 as int256))) AS amount
+    FROM (
+        SELECT
+            day,
+            pool_id,
+            token,
+            SUM(COALESCE(delta, INT256 '0')) AS amount
+        FROM balances_changes
+        GROUP BY 1, 2, 3
+        UNION ALL
+        SELECT
+            day,
+            pool_id,
+            token,
+            CAST(delta as int256) AS amount
+        FROM swaps_changes
+        UNION ALL
+        SELECT
+            day,
+            pool_id,
+            token,
+            CAST(delta as int256) AS amount
+        FROM managed_changes
+    ) balance
+    GROUP BY 1, 2, 3
+),
+cumulative_balance AS (
+    SELECT
+        day,
+        pool_id,
+        token,
+        LEAD(day, 1, NOW()) OVER (PARTITION BY token, pool_id ORDER BY day) AS day_of_next_change,
+        SUM(amount) OVER (PARTITION BY pool_id, token ORDER BY day ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS cumulative_amount
+    FROM daily_delta_balance
+),
+    calendar AS (
+        SELECT date_sequence AS day
+        FROM unnest(sequence(date('2021-04-21'), date(now()), interval '1' day)) as t(date_sequence)
+    ),
+cumulative_usd_balance AS (
+    SELECT
+        c.day,
+        b.pool_id,
+        b.token,
+        symbol AS token_symbol,
+        cumulative_amount AS token_balance_raw,
+        cumulative_amount / POWER(10, COALESCE(t.decimals, p1.decimals)) AS token_balance,
+        cumulative_amount / POWER(10, COALESCE(t.decimals, p1.decimals)) * COALESCE(p1.price, /*p2.price,*/ 0) AS protocol_liquidity_usd,
+        cumulative_amount / POWER(10, COALESCE(t.decimals, p1.decimals)) * COALESCE(p1.price, /*p2.price,*/ p3.bpt_price) AS pool_liquidity_usd
+    FROM calendar c
+    LEFT JOIN cumulative_balance b ON b.day <= c.day
+    AND c.day < b.day_of_next_change
+    LEFT JOIN tokens.erc20 t ON t.contract_address = b.token
+    AND blockchain = 'ethereum'
+    LEFT JOIN prices p1 ON p1.day = b.day
+    AND p1.token = b.token
+    /*LEFT JOIN dex_prices p2 ON p2.day <= c.day
+    AND c.day < p2.day_of_next_change
+    AND p2.token = b.token*/
+    LEFT JOIN bpt_prices p3 ON p3.day = b.day AND p3.token = CAST(b.token AS varchar(42))
+    WHERE CAST(b.token as varchar) != SUBSTRING(CAST(b.pool_id as varchar), 1, 42)
+),
+pool_liquidity_estimates AS (
+    SELECT
+        b.day,
+        b.pool_id,
+        SUM(b.pool_liquidity_usd) / COALESCE(SUM(w.normalized_weight), 1) AS pool_liquidity
+    FROM cumulative_usd_balance b
+    LEFT JOIN query_2748887 w ON b.pool_id = w.pool_id
+    AND b.token = w.token_address
+    AND b.pool_liquidity_usd > 0
+    GROUP BY 1, 2
+),
+spell as(
+SELECT
+    b.day,
+    b.pool_id,
+    p.pool_symbol,
+    'ethereum' AS blockchain,
+    token AS token_address,
+    token_symbol,
+    token_balance_raw,
+    token_balance,
+    protocol_liquidity_usd,
+    COALESCE(pool_liquidity_usd, pool_liquidity * normalized_weight) AS pool_liquidity_usd
+FROM pool_liquidity_estimates b
+LEFT JOIN cumulative_usd_balance c ON c.day = b.day
+AND c.pool_id = b.pool_id
+LEFT JOIN query_2748887 w ON b.pool_id = w.pool_id
+AND w.token_address = c.token
+LEFT JOIN pool_labels p ON CAST(p.pool_id as varchar) = SUBSTRING(CAST(b.pool_id as varchar), 1, 42)
+WHERE b.day > TIMESTAMP '2023-08-01')
+SELECT day, sum(protocol_liquidity_usd) as protocol_liquidity_usd , sum(pool_liquidity_usd) as pool_liquidity_usd FROM spell
+GROUP BY 1

@@ -1,0 +1,83 @@
+-- part of a query repo
+-- query name: quantAMM pool labels
+-- query link: https://dune.com/queries/4874163
+
+
+WITH token_data AS (
+        SELECT
+            pool,
+            ARRAY_AGG(FROM_HEX(json_extract_scalar(token, '$.token')) ORDER BY token_index) AS tokens 
+        FROM (
+            SELECT
+                pool,
+                tokenConfig,
+                SEQUENCE(1, CARDINALITY(tokenConfig)) AS token_index_array
+            FROM balancer_testnet_sepolia.Vault_evt_PoolRegistered
+        ) AS pool_data
+        CROSS JOIN UNNEST(tokenConfig, token_index_array) AS t(token, token_index)
+        GROUP BY 1
+    ),
+
+    pools AS (
+      SELECT
+        pool_id,
+        zip.tokens AS token_address,
+        zip.weights / POWER(10, 18) AS normalized_weight,
+        symbol,
+        pool_type
+      FROM (
+        SELECT
+          c.pool AS pool_id,
+          t.tokens,
+          0 AS weights,
+          json_extract_scalar(cc.params, '$.symbol') AS symbol,
+          'quantAMM_weighted' AS pool_type
+        FROM token_data c
+        INNER JOIN balancer_testnet_sepolia.quantammweightedpoolfactory_call_create cc
+        ON c.pool = cc.output_pool
+        CROSS JOIN UNNEST(c.tokens) WITH ORDINALITY t(tokens, pos))zip
+        ),
+
+    settings AS (
+      SELECT
+        pool_id,
+        coalesce(t.symbol, '?') AS token_symbol,
+        normalized_weight,
+        p.symbol AS pool_symbol,
+        p.pool_type
+      FROM pools p
+      LEFT JOIN tokens.erc20 t ON p.token_address = t.contract_address
+      AND t.blockchain = 'sepolia'
+    )
+
+    SELECT 
+      'sepolia' AS blockchain,
+      bytearray_substring(pool_id, 1, 20) AS address,
+      CASE WHEN pool_type IN ('stable') 
+      THEN lower(pool_symbol)
+      WHEN pool_type IN ('quantAMM_weighted') 
+      THEN 'quantAMM: ' || lower(pool_symbol)
+        ELSE lower(concat(array_join(array_agg(token_symbol ORDER BY token_symbol), '/'), ' ', 
+        array_join(array_agg(cast(norm_weight AS varchar) ORDER BY token_symbol), '/')))
+      END AS name,
+      pool_type,
+      '3' AS version,
+      'beets_v3_pool' AS category,
+      'beets' AS contributor,
+      'query' AS source,
+      TIMESTAMP'2024-12-15 00:00' AS created_at,
+      now() AS updated_at,
+      'beets_pools_sonic' AS model_name,
+      'identifier' AS label_type
+    FROM (
+      SELECT
+        s1.pool_id,
+        token_symbol,
+        pool_symbol,
+        cast(100 * normalized_weight AS integer) AS norm_weight,
+        pool_type
+      FROM settings s1
+      GROUP BY s1.pool_id, token_symbol, pool_symbol, normalized_weight, pool_type
+    ) s
+    GROUP BY pool_id, pool_symbol, pool_type
+    ORDER BY 1

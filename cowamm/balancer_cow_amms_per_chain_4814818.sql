@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: Balancer CoW AMMs per chain
+-- query link: https://dune.com/queries/4814818
+
+
 -- This query gets all the cowamms created after the Balancer CoW AMM launch on July 29, 2024 for a specific chain
 --Parameters
 --  {{blockchain}}: The blockchain to query

@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Uni v2 Syncs
+-- query link: https://dune.com/queries/4117043
+
+
 -- Finds the uniswap v2 pool address given tokens specified in query parameters (regardless of order)
 with pools as (
     select

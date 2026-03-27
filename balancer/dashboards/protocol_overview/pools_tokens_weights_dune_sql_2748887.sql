@@ -1,0 +1,80 @@
+-- part of a query repo
+-- query name: pools_tokens_weights (Dune SQL)
+-- query link: https://dune.com/queries/2748887
+
+
+WITH registered AS (
+    SELECT
+        poolID AS pool_id,
+        evt_block_time
+    FROM balancer_v2_ethereum.Vault_evt_PoolRegistered
+),
+
+weighted_pool_factory AS (
+    SELECT
+        call_create.output_0 AS pool_id,
+        t.pos AS pos,
+        t.token_address AS token_address,
+        t2.normalized_weight AS normalized_weight
+    FROM balancer_v2_ethereum.WeightedPoolFactory_call_create AS call_create
+    CROSS JOIN UNNEST(call_create.tokens) WITH ORDINALITY t(token_address, pos)
+    CROSS JOIN UNNEST(call_create.weights) WITH ORDINALITY t2(normalized_weight, pos)
+    WHERE t.pos = t2.pos 
+    
+    UNION ALL
+    
+    SELECT
+        call_create.output_0 AS pool_id,
+        t.pos AS pos,
+        t.token_address AS token_address,
+        t2.normalized_weight AS normalized_weight
+    FROM balancer_v2_ethereum.WeightedPoolFactory_call_create AS call_create
+    CROSS JOIN UNNEST(call_create.tokens) WITH ORDINALITY t(token_address, pos)
+    CROSS JOIN UNNEST(call_create.normalizedWeights) WITH ORDINALITY t2(normalized_weight, pos)
+    WHERE t.pos = t2.pos 
+),
+weighted_pool_2tokens_factory AS (
+    SELECT
+        call_create.output_0 AS pool_id,
+        t.pos AS pos,
+        t.token_address AS token_address,
+        t2.normalized_weight AS normalized_weight
+    FROM balancer_v2_ethereum.WeightedPool2TokensFactory_call_create AS call_create
+    CROSS JOIN UNNEST(call_create.tokens) WITH ORDINALITY t(token_address, pos)
+    CROSS JOIN UNNEST(call_create.weights) WITH ORDINALITY t2(normalized_weight, pos)
+    WHERE t.pos = t2.pos
+),
+weighted_pool_v2_factory AS (
+    SELECT
+        call_create.output_0 AS pool_id,
+        t.pos AS pos,
+        t.token_address AS token_address,
+        t2.normalized_weight AS normalized_weight
+    FROM balancer_v2_ethereum.WeightedPoolV2Factory_call_create AS call_create
+    CROSS JOIN UNNEST(call_create.tokens) WITH ORDINALITY t(token_address, pos)
+    CROSS JOIN UNNEST(call_create.normalizedWeights) WITH ORDINALITY t2(normalized_weight, pos)
+    WHERE t.pos = t2.pos
+),
+normalized_weights AS (
+    SELECT
+        pool_id,
+        token_address,
+        normalized_weight / POWER(10, 18) AS normalized_weight
+    FROM weighted_pool_factory
+    UNION ALL
+    SELECT
+        pool_id,
+        token_address,
+        normalized_weight / POWER(10, 18) AS normalized_weight
+    FROM weighted_pool_2tokens_factory
+    UNION ALL
+    SELECT
+        pool_id,
+        token_address,
+        normalized_weight / POWER(10, 18) AS normalized_weight
+    FROM weighted_pool_v2_factory
+)
+SELECT r.pool_id, w.token_address, w.normalized_weight
+FROM normalized_weights w 
+LEFT JOIN registered r ON SUBSTRING(CAST(r.pool_id as varchar),1,42) = CAST(w.pool_id as varchar)
+WHERE w.pool_id IS NOT NULL

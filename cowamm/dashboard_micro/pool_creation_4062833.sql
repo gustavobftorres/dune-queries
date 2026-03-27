@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: [CoW AMM] Pool creation time
+-- query link: https://dune.com/queries/4062833
+
+
 -- display the information about a CoW AMM pool
 -- Parameters:
 --   cow_amm: the address of the pool

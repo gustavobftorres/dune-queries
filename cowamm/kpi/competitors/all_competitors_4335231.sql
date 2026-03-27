@@ -1,3 +1,8 @@
+-- part of a query repo
+-- query name: CoW AMM competitors kpis
+-- query link: https://dune.com/queries/4335231
+
+
 --Groups all competitors in one query
 -- Parameters:
 -- {{blockchain}}: The blockchain to query
@@ -16,7 +21,7 @@ select
         when '{{blockchain}}' = 'base' then 8453
         when '{{blockchain}}' = 'arbitrum' then 42161
     end as chain_id
-from "query_4304295(blockchain='{{blockchain}}', competitor_end_time='{{competitor_end_time}}')"
+from "query_4304295(blockchain='{{blockchain}}', start_time='{{start_time}}')"
 
 union distinct
 
@@ -34,7 +39,7 @@ select
         when '{{blockchain}}' = 'base' then 8453
         when '{{blockchain}}' = 'arbitrum' then 42161
     end as chain_id
-from "query_4232873(blockchain='ethereum', competitor_end_time='{{competitor_end_time}}')"
+from "query_4232873(blockchain='ethereum', start_time='{{start_time}}')"
 -- there are no significant curve pools on arbitrum/gnosis
 where '{{blockchain}}' = 'ethereum'
 
@@ -54,4 +59,4 @@ select
         when '{{blockchain}}' = 'base' then 8453
         when '{{blockchain}}' = 'arbitrum' then 42161
     end as chain_id
-from "query_4340428(blockchain='{{blockchain}}', competitor_end_time='{{competitor_end_time}}')"
+from "query_4340428(blockchain='{{blockchain}}', competitor_end_time='{{start_time}}')"
