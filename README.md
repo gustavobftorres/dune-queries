@@ -28,6 +28,10 @@ scripts/                  Tooling for query management
 
 All query file names follow the pattern `descriptive_name_{queryId}.sql`. The query ID is the numeric ID from the Dune URL (`dune.com/queries/{id}`).
 
+## Migrating existing Balancer queries from Dune
+
+Phase 2 discovery is documented in [docs/DISCOVERY.md](docs/DISCOVERY.md). To export **all** query IDs from the team workspace list in one go, use the local Playwright helper in [`scraping/`](scraping/README.md) (first-time bootstrap only). Then merge into `queries.yml` and run `pull_from_dune.py` (Phase 3 ingestion).
+
 ## Quick Start
 
 ### Prerequisites

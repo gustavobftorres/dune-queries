@@ -48,8 +48,2772 @@ query_ids:
   - 4814818
   - 4849124
 
-  # --- Balancer (to be populated in Phase 2: Discovery) ---
-  # - id: <query_id>
-  #   category: volume
-  # - id: <query_id>
-  #   category: tvl
+  # --- Balancer core (Phase 2: Discovery) ---
+  # Imported from scraping/queries.workspace.snippet.yml
+  - id: 20499
+    category: dashboards/protocol_overview
+  - id: 20914
+    category: dashboards/protocol_overview
+  - id: 20915
+    category: dashboards/protocol_overview
+  - id: 22028
+    category: dashboards/protocol_overview
+  - id: 22081
+    category: dashboards/protocol_overview
+  - id: 22082
+    category: dashboards/protocol_overview
+  - id: 22257
+    category: dashboards/protocol_overview
+  - id: 22258
+    category: dashboards/protocol_overview
+  - id: 22259
+    category: dashboards/protocol_overview
+  - id: 22260
+    category: dashboards/protocol_overview
+  - id: 22261
+    category: dashboards/protocol_overview
+  - id: 22262
+    category: dashboards/protocol_overview
+  - id: 22263
+    category: dashboards/protocol_overview
+  - id: 22264
+    category: dashboards/protocol_overview
+  - id: 22265
+    category: dashboards/protocol_overview
+  - id: 22267
+    category: dashboards/protocol_overview
+  - id: 22268
+    category: dashboards/protocol_overview
+  - id: 22269
+    category: dashboards/protocol_overview
+  - id: 22270
+    category: dashboards/protocol_overview
+  - id: 22271
+    category: dashboards/protocol_overview
+  - id: 22272
+    category: dashboards/protocol_overview
+  - id: 22273
+    category: dashboards/protocol_overview
+  - id: 22274
+    category: dashboards/protocol_overview
+  - id: 22275
+    category: dashboards/protocol_overview
+  - id: 22276
+    category: dashboards/protocol_overview
+  - id: 22277
+    category: dashboards/protocol_overview
+  - id: 22278
+    category: dashboards/protocol_overview
+  - id: 22279
+    category: dashboards/protocol_overview
+  - id: 22280
+    category: dashboards/protocol_overview
+  - id: 22281
+    category: dashboards/protocol_overview
+  - id: 22282
+    category: dashboards/protocol_overview
+  - id: 22283
+    category: dashboards/protocol_overview
+  - id: 22287
+    category: dashboards/protocol_overview
+  - id: 22288
+    category: dashboards/protocol_overview
+  - id: 22289
+    category: dashboards/protocol_overview
+  - id: 22290
+    category: dashboards/protocol_overview
+  - id: 22292
+    category: dashboards/protocol_overview
+  - id: 23697
+    category: dashboards/protocol_overview
+  - id: 23704
+    category: dashboards/protocol_overview
+  - id: 23728
+    category: dashboards/protocol_overview
+  - id: 25794
+    category: dashboards/protocol_overview
+  - id: 26390
+    category: dashboards/protocol_overview
+  - id: 28204
+    category: dashboards/protocol_overview
+  - id: 28207
+    category: dashboards/protocol_overview
+  - id: 28208
+    category: dashboards/protocol_overview
+  - id: 28210
+    category: dashboards/protocol_overview
+  - id: 28212
+    category: dashboards/protocol_overview
+  - id: 28214
+    category: dashboards/protocol_overview
+  - id: 28215
+    category: dashboards/protocol_overview
+  - id: 28216
+    category: dashboards/protocol_overview
+  - id: 28217
+    category: dashboards/protocol_overview
+  - id: 28773
+    category: dashboards/protocol_overview
+  - id: 28781
+    category: dashboards/protocol_overview
+  - id: 28782
+    category: dashboards/protocol_overview
+  - id: 28783
+    category: dashboards/protocol_overview
+  - id: 28784
+    category: dashboards/protocol_overview
+  - id: 28785
+    category: dashboards/protocol_overview
+  - id: 28786
+    category: dashboards/protocol_overview
+  - id: 28787
+    category: dashboards/protocol_overview
+  - id: 28788
+    category: dashboards/protocol_overview
+  - id: 29951
+    category: dashboards/protocol_overview
+  - id: 29954
+    category: dashboards/protocol_overview
+  - id: 29958
+    category: dashboards/protocol_overview
+  - id: 30425
+    category: dashboards/protocol_overview
+  - id: 30426
+    category: dashboards/protocol_overview
+  - id: 31171
+    category: dashboards/protocol_overview
+  - id: 31178
+    category: dashboards/protocol_overview
+  - id: 31186
+    category: dashboards/protocol_overview
+  - id: 31187
+    category: dashboards/protocol_overview
+  - id: 31188
+    category: dashboards/protocol_overview
+  - id: 31189
+    category: dashboards/protocol_overview
+  - id: 31190
+    category: dashboards/protocol_overview
+  - id: 31191
+    category: dashboards/protocol_overview
+  - id: 31192
+    category: dashboards/protocol_overview
+  - id: 31193
+    category: dashboards/protocol_overview
+  - id: 31194
+    category: dashboards/protocol_overview
+  - id: 31195
+    category: dashboards/protocol_overview
+  - id: 31196
+    category: dashboards/protocol_overview
+  - id: 31197
+    category: dashboards/protocol_overview
+  - id: 31198
+    category: dashboards/protocol_overview
+  - id: 31199
+    category: dashboards/protocol_overview
+  - id: 31200
+    category: dashboards/protocol_overview
+  - id: 31201
+    category: dashboards/protocol_overview
+  - id: 31202
+    category: dashboards/protocol_overview
+  - id: 31203
+    category: dashboards/protocol_overview
+  - id: 31204
+    category: dashboards/protocol_overview
+  - id: 31277
+    category: dashboards/protocol_overview
+  - id: 31278
+    category: dashboards/protocol_overview
+  - id: 31279
+    category: dashboards/protocol_overview
+  - id: 31280
+    category: dashboards/protocol_overview
+  - id: 31284
+    category: dashboards/protocol_overview
+  - id: 31285
+    category: dashboards/protocol_overview
+  - id: 31290
+    category: dashboards/protocol_overview
+  - id: 33466
+    category: dashboards/protocol_overview
+  - id: 35525
+    category: dashboards/protocol_overview
+  - id: 35544
+    category: dashboards/protocol_overview
+  - id: 39168
+    category: dashboards/protocol_overview
+  - id: 39194
+    category: dashboards/protocol_overview
+  - id: 42530
+    category: dashboards/protocol_overview
+  - id: 42531
+    category: dashboards/protocol_overview
+  - id: 42551
+    category: dashboards/protocol_overview
+  - id: 50016
+    category: dashboards/protocol_overview
+  - id: 50025
+    category: dashboards/protocol_overview
+  - id: 50026
+    category: dashboards/protocol_overview
+  - id: 51242
+    category: dashboards/protocol_overview
+  - id: 56854
+    category: dashboards/protocol_overview
+  - id: 56948
+    category: dashboards/protocol_overview
+  - id: 56950
+    category: dashboards/protocol_overview
+  - id: 56978
+    category: dashboards/protocol_overview
+  - id: 57692
+    category: dashboards/protocol_overview
+  - id: 58117
+    category: dashboards/protocol_overview
+  - id: 62951
+    category: dashboards/protocol_overview
+  - id: 63906
+    category: dashboards/protocol_overview
+  - id: 63917
+    category: dashboards/protocol_overview
+  - id: 63929
+    category: dashboards/protocol_overview
+  - id: 63933
+    category: dashboards/protocol_overview
+  - id: 63936
+    category: dashboards/protocol_overview
+  - id: 63940
+    category: dashboards/protocol_overview
+  - id: 63943
+    category: dashboards/protocol_overview
+  - id: 63949
+    category: dashboards/protocol_overview
+  - id: 63950
+    category: dashboards/protocol_overview
+  - id: 66251
+    category: dashboards/protocol_overview
+  - id: 67669
+    category: dashboards/protocol_overview
+  - id: 71918
+    category: dashboards/protocol_overview
+  - id: 71941
+    category: dashboards/protocol_overview
+  - id: 72005
+    category: dashboards/protocol_overview
+  - id: 72510
+    category: dashboards/protocol_overview
+  - id: 72519
+    category: dashboards/protocol_overview
+  - id: 72543
+    category: dashboards/protocol_overview
+  - id: 72551
+    category: dashboards/protocol_overview
+  - id: 73321
+    category: dashboards/protocol_overview
+  - id: 73573
+    category: dashboards/protocol_overview
+  - id: 81001
+    category: dashboards/protocol_overview
+  - id: 81084
+    category: dashboards/protocol_overview
+  - id: 81110
+    category: dashboards/protocol_overview
+  - id: 81128
+    category: dashboards/protocol_overview
+  - id: 81878
+    category: dashboards/protocol_overview
+  - id: 81953
+    category: dashboards/protocol_overview
+  - id: 81998
+    category: dashboards/protocol_overview
+  - id: 83381
+    category: dashboards/protocol_overview
+  - id: 92908
+    category: dashboards/protocol_overview
+  - id: 92914
+    category: dashboards/protocol_overview
+  - id: 95169
+    category: dashboards/protocol_overview
+  - id: 95179
+    category: dashboards/protocol_overview
+  - id: 95195
+    category: dashboards/protocol_overview
+  - id: 95202
+    category: dashboards/protocol_overview
+  - id: 95305
+    category: dashboards/protocol_overview
+  - id: 95307
+    category: dashboards/protocol_overview
+  - id: 95315
+    category: dashboards/protocol_overview
+  - id: 95319
+    category: dashboards/protocol_overview
+  - id: 95324
+    category: dashboards/protocol_overview
+  - id: 95423
+    category: dashboards/protocol_overview
+  - id: 96264
+    category: dashboards/protocol_overview
+  - id: 96784
+    category: dashboards/protocol_overview
+  - id: 96787
+    category: dashboards/protocol_overview
+  - id: 96789
+    category: dashboards/protocol_overview
+  - id: 96798
+    category: dashboards/protocol_overview
+  - id: 96806
+    category: dashboards/protocol_overview
+  - id: 96852
+    category: dashboards/protocol_overview
+  - id: 96884
+    category: dashboards/protocol_overview
+  - id: 96896
+    category: dashboards/protocol_overview
+  - id: 96936
+    category: dashboards/protocol_overview
+  - id: 96948
+    category: dashboards/protocol_overview
+  - id: 97008
+    category: dashboards/protocol_overview
+  - id: 97876
+    category: dashboards/protocol_overview
+  - id: 97899
+    category: dashboards/protocol_overview
+  - id: 98554
+    category: dashboards/protocol_overview
+  - id: 98556
+    category: dashboards/protocol_overview
+  - id: 98576
+    category: dashboards/protocol_overview
+  - id: 98601
+    category: dashboards/protocol_overview
+  - id: 98619
+    category: dashboards/protocol_overview
+  - id: 98637
+    category: dashboards/protocol_overview
+  - id: 100213
+    category: dashboards/protocol_overview
+  - id: 100215
+    category: dashboards/protocol_overview
+  - id: 100238
+    category: dashboards/protocol_overview
+  - id: 100241
+    category: dashboards/protocol_overview
+  - id: 100243
+    category: dashboards/protocol_overview
+  - id: 101202
+    category: dashboards/protocol_overview
+  - id: 101217
+    category: dashboards/protocol_overview
+  - id: 101230
+    category: dashboards/protocol_overview
+  - id: 103639
+    category: dashboards/protocol_overview
+  - id: 110798
+    category: dashboards/protocol_overview
+  - id: 110908
+    category: dashboards/protocol_overview
+  - id: 111115
+    category: dashboards/protocol_overview
+  - id: 111120
+    category: dashboards/protocol_overview
+  - id: 112058
+    category: dashboards/protocol_overview
+  - id: 130534
+    category: dashboards/protocol_overview
+  - id: 134670
+    category: dashboards/protocol_overview
+  - id: 134688
+    category: dashboards/protocol_overview
+  - id: 141868
+    category: dashboards/protocol_overview
+  - id: 141891
+    category: dashboards/protocol_overview
+  - id: 141906
+    category: dashboards/protocol_overview
+  - id: 141923
+    category: dashboards/protocol_overview
+  - id: 141955
+    category: dashboards/protocol_overview
+  - id: 142007
+    category: dashboards/protocol_overview
+  - id: 142174
+    category: dashboards/protocol_overview
+  - id: 142203
+    category: dashboards/protocol_overview
+  - id: 143182
+    category: dashboards/protocol_overview
+  - id: 143229
+    category: dashboards/protocol_overview
+  - id: 143230
+    category: dashboards/protocol_overview
+  - id: 151141
+    category: dashboards/protocol_overview
+  - id: 151147
+    category: dashboards/protocol_overview
+  - id: 151187
+    category: dashboards/protocol_overview
+  - id: 151192
+    category: dashboards/protocol_overview
+  - id: 151193
+    category: dashboards/protocol_overview
+  - id: 151212
+    category: dashboards/protocol_overview
+  - id: 151221
+    category: dashboards/protocol_overview
+  - id: 151225
+    category: dashboards/protocol_overview
+  - id: 151227
+    category: dashboards/protocol_overview
+  - id: 151261
+    category: dashboards/protocol_overview
+  - id: 151454
+    category: dashboards/protocol_overview
+  - id: 186509
+    category: dashboards/protocol_overview
+  - id: 188058
+    category: dashboards/protocol_overview
+  - id: 190412
+    category: dashboards/protocol_overview
+  - id: 190850
+    category: dashboards/protocol_overview
+  - id: 197448
+    category: dashboards/protocol_overview
+  - id: 226248
+    category: dashboards/protocol_overview
+  - id: 226255
+    category: dashboards/protocol_overview
+  - id: 226263
+    category: dashboards/protocol_overview
+  - id: 226267
+    category: dashboards/protocol_overview
+  - id: 226305
+    category: dashboards/protocol_overview
+  - id: 226326
+    category: dashboards/protocol_overview
+  - id: 232452
+    category: dashboards/protocol_overview
+  - id: 232903
+    category: dashboards/protocol_overview
+  - id: 237505
+    category: dashboards/protocol_overview
+  - id: 237529
+    category: dashboards/protocol_overview
+  - id: 249326
+    category: dashboards/protocol_overview
+  - id: 257785
+    category: dashboards/protocol_overview
+  - id: 257832
+    category: dashboards/protocol_overview
+  - id: 261657
+    category: dashboards/protocol_overview
+  - id: 261668
+    category: dashboards/protocol_overview
+  - id: 261688
+    category: dashboards/protocol_overview
+  - id: 261705
+    category: dashboards/protocol_overview
+  - id: 274924
+    category: dashboards/protocol_overview
+  - id: 274932
+    category: dashboards/protocol_overview
+  - id: 274960
+    category: dashboards/protocol_overview
+  - id: 306064
+    category: dashboards/protocol_overview
+  - id: 306087
+    category: dashboards/protocol_overview
+  - id: 347428
+    category: dashboards/protocol_overview
+  - id: 543807
+    category: dashboards/protocol_overview
+  - id: 544023
+    category: dashboards/protocol_overview
+  - id: 550682
+    category: dashboards/protocol_overview
+  - id: 559677
+    category: dashboards/protocol_overview
+  - id: 583830
+    category: dashboards/protocol_overview
+  - id: 601405
+    category: dashboards/protocol_overview
+  - id: 622204
+    category: dashboards/protocol_overview
+  - id: 730790
+    category: dashboards/protocol_overview
+  - id: 756468
+    category: dashboards/protocol_overview
+  - id: 782195
+    category: dashboards/protocol_overview
+  - id: 782232
+    category: dashboards/protocol_overview
+  - id: 782249
+    category: dashboards/protocol_overview
+  - id: 843136
+    category: dashboards/protocol_overview
+  - id: 843153
+    category: dashboards/protocol_overview
+  - id: 889717
+    category: dashboards/protocol_overview
+  - id: 949301
+    category: dashboards/protocol_overview
+  - id: 961088
+    category: dashboards/protocol_overview
+  - id: 1015861
+    category: dashboards/protocol_overview
+  - id: 1130552
+    category: dashboards/protocol_overview
+  - id: 1130557
+    category: dashboards/protocol_overview
+  - id: 1130743
+    category: dashboards/protocol_overview
+  - id: 1200356
+    category: dashboards/protocol_overview
+  - id: 1431796
+    category: dashboards/protocol_overview
+  - id: 1556939
+    category: dashboards/protocol_overview
+  - id: 1556940
+    category: dashboards/protocol_overview
+  - id: 1920221
+    category: dashboards/protocol_overview
+  - id: 1922801
+    category: dashboards/protocol_overview
+  - id: 1974843
+    category: dashboards/protocol_overview
+  - id: 1997580
+    category: dashboards/protocol_overview
+  - id: 2150674
+    category: dashboards/protocol_overview
+  - id: 2150682
+    category: dashboards/protocol_overview
+  - id: 2164855
+    category: dashboards/protocol_overview
+  - id: 2198995
+    category: dashboards/protocol_overview
+  - id: 2217235
+    category: dashboards/protocol_overview
+  - id: 2249879
+    category: dashboards/protocol_overview
+  - id: 2265987
+    category: dashboards/protocol_overview
+  - id: 2276840
+    category: dashboards/protocol_overview
+  - id: 2283058
+    category: dashboards/protocol_overview
+  - id: 2283067
+    category: dashboards/protocol_overview
+  - id: 2283107
+    category: dashboards/protocol_overview
+  - id: 2283210
+    category: dashboards/protocol_overview
+  - id: 2283249
+    category: dashboards/protocol_overview
+  - id: 2283263
+    category: dashboards/protocol_overview
+  - id: 2318569
+    category: dashboards/protocol_overview
+  - id: 2318623
+    category: dashboards/protocol_overview
+  - id: 2320158
+    category: dashboards/protocol_overview
+  - id: 2320180
+    category: dashboards/protocol_overview
+  - id: 2320278
+    category: dashboards/protocol_overview
+  - id: 2330097
+    category: dashboards/protocol_overview
+  - id: 2410625
+    category: dashboards/protocol_overview
+  - id: 2414437
+    category: dashboards/protocol_overview
+  - id: 2435889
+    category: dashboards/protocol_overview
+  - id: 2441158
+    category: dashboards/protocol_overview
+  - id: 2441394
+    category: dashboards/protocol_overview
+  - id: 2478528
+    category: dashboards/protocol_overview
+  - id: 2484202
+    category: dashboards/protocol_overview
+  - id: 2484350
+    category: dashboards/protocol_overview
+  - id: 2484353
+    category: dashboards/protocol_overview
+  - id: 2484384
+    category: dashboards/protocol_overview
+  - id: 2484385
+    category: dashboards/protocol_overview
+  - id: 2484386
+    category: dashboards/protocol_overview
+  - id: 2484420
+    category: dashboards/protocol_overview
+  - id: 2484421
+    category: dashboards/protocol_overview
+  - id: 2484422
+    category: dashboards/protocol_overview
+  - id: 2484423
+    category: dashboards/protocol_overview
+  - id: 2484508
+    category: dashboards/protocol_overview
+  - id: 2484511
+    category: dashboards/protocol_overview
+  - id: 2484512
+    category: dashboards/protocol_overview
+  - id: 2500058
+    category: dashboards/protocol_overview
+  - id: 2508419
+    category: dashboards/protocol_overview
+  - id: 2510848
+    category: dashboards/protocol_overview
+  - id: 2510861
+    category: dashboards/protocol_overview
+  - id: 2510878
+    category: dashboards/protocol_overview
+  - id: 2511095
+    category: dashboards/protocol_overview
+  - id: 2511097
+    category: dashboards/protocol_overview
+  - id: 2511450
+    category: dashboards/protocol_overview
+  - id: 2552320
+    category: dashboards/protocol_overview
+  - id: 2552549
+    category: dashboards/protocol_overview
+  - id: 2556936
+    category: dashboards/protocol_overview
+  - id: 2557257
+    category: dashboards/protocol_overview
+  - id: 2560043
+    category: dashboards/protocol_overview
+  - id: 2602212
+    category: dashboards/protocol_overview
+  - id: 2604998
+    category: dashboards/protocol_overview
+  - id: 2605078
+    category: dashboards/protocol_overview
+  - id: 2605258
+    category: dashboards/protocol_overview
+  - id: 2611976
+    category: dashboards/protocol_overview
+  - id: 2612067
+    category: dashboards/protocol_overview
+  - id: 2617531
+    category: dashboards/protocol_overview
+  - id: 2617534
+    category: dashboards/protocol_overview
+  - id: 2617540
+    category: dashboards/protocol_overview
+  - id: 2617560
+    category: dashboards/protocol_overview
+  - id: 2617636
+    category: dashboards/protocol_overview
+  - id: 2617645
+    category: dashboards/protocol_overview
+  - id: 2617646
+    category: dashboards/protocol_overview
+  - id: 2617649
+    category: dashboards/protocol_overview
+  - id: 2620438
+    category: dashboards/protocol_overview
+  - id: 2621443
+    category: dashboards/protocol_overview
+  - id: 2621467
+    category: dashboards/protocol_overview
+  - id: 2622799
+    category: dashboards/protocol_overview
+  - id: 2622978
+    category: dashboards/protocol_overview
+  - id: 2623322
+    category: dashboards/protocol_overview
+  - id: 2628938
+    category: dashboards/protocol_overview
+  - id: 2628939
+    category: dashboards/protocol_overview
+  - id: 2628941
+    category: dashboards/protocol_overview
+  - id: 2628942
+    category: dashboards/protocol_overview
+  - id: 2628943
+    category: dashboards/protocol_overview
+  - id: 2632477
+    category: dashboards/protocol_overview
+  - id: 2632759
+    category: dashboards/protocol_overview
+  - id: 2634572
+    category: dashboards/protocol_overview
+  - id: 2635224
+    category: dashboards/protocol_overview
+  - id: 2638028
+    category: dashboards/protocol_overview
+  - id: 2638042
+    category: dashboards/protocol_overview
+  - id: 2638043
+    category: dashboards/protocol_overview
+  - id: 2638044
+    category: dashboards/protocol_overview
+  - id: 2638051
+    category: dashboards/protocol_overview
+  - id: 2638053
+    category: dashboards/protocol_overview
+  - id: 2638055
+    category: dashboards/protocol_overview
+  - id: 2638059
+    category: dashboards/protocol_overview
+  - id: 2638061
+    category: dashboards/protocol_overview
+  - id: 2638078
+    category: dashboards/protocol_overview
+  - id: 2638079
+    category: dashboards/protocol_overview
+  - id: 2638081
+    category: dashboards/protocol_overview
+  - id: 2638082
+    category: dashboards/protocol_overview
+  - id: 2638084
+    category: dashboards/protocol_overview
+  - id: 2641362
+    category: dashboards/protocol_overview
+  - id: 2641671
+    category: dashboards/protocol_overview
+  - id: 2647345
+    category: dashboards/protocol_overview
+  - id: 2647969
+    category: dashboards/protocol_overview
+  - id: 2648058
+    category: dashboards/protocol_overview
+  - id: 2648081
+    category: dashboards/protocol_overview
+  - id: 2650923
+    category: dashboards/protocol_overview
+  - id: 2650938
+    category: dashboards/protocol_overview
+  - id: 2652982
+    category: dashboards/protocol_overview
+  - id: 2653136
+    category: dashboards/protocol_overview
+  - id: 2655636
+    category: dashboards/protocol_overview
+  - id: 2655648
+    category: dashboards/protocol_overview
+  - id: 2655650
+    category: dashboards/protocol_overview
+  - id: 2657401
+    category: dashboards/protocol_overview
+  - id: 2658274
+    category: dashboards/protocol_overview
+  - id: 2659164
+    category: dashboards/protocol_overview
+  - id: 2707197
+    category: dashboards/protocol_overview
+  - id: 2707229
+    category: dashboards/protocol_overview
+  - id: 2714287
+    category: dashboards/protocol_overview
+  - id: 2716267
+    category: dashboards/protocol_overview
+  - id: 2718006
+    category: dashboards/protocol_overview
+  - id: 2718018
+    category: dashboards/protocol_overview
+  - id: 2718029
+    category: dashboards/protocol_overview
+  - id: 2718062
+    category: dashboards/protocol_overview
+  - id: 2718077
+    category: dashboards/protocol_overview
+  - id: 2718141
+    category: dashboards/protocol_overview
+  - id: 2720447
+    category: dashboards/protocol_overview
+  - id: 2723851
+    category: dashboards/protocol_overview
+  - id: 2732245
+    category: dashboards/protocol_overview
+  - id: 2732261
+    category: dashboards/protocol_overview
+  - id: 2732262
+    category: dashboards/protocol_overview
+  - id: 2732263
+    category: dashboards/protocol_overview
+  - id: 2732264
+    category: dashboards/protocol_overview
+  - id: 2732266
+    category: dashboards/protocol_overview
+  - id: 2732267
+    category: dashboards/protocol_overview
+  - id: 2732279
+    category: dashboards/protocol_overview
+  - id: 2739453
+    category: dashboards/protocol_overview
+  - id: 2747802
+    category: dashboards/protocol_overview
+  - id: 2748887
+    category: dashboards/protocol_overview
+  - id: 2755328
+    category: dashboards/protocol_overview
+  - id: 2765824
+    category: dashboards/protocol_overview
+  - id: 2767078
+    category: dashboards/protocol_overview
+  - id: 2771723
+    category: dashboards/protocol_overview
+  - id: 2775403
+    category: dashboards/protocol_overview
+  - id: 2827997
+    category: dashboards/protocol_overview
+  - id: 2827999
+    category: dashboards/protocol_overview
+  - id: 2828007
+    category: dashboards/protocol_overview
+  - id: 2828013
+    category: dashboards/protocol_overview
+  - id: 2828014
+    category: dashboards/protocol_overview
+  - id: 2828018
+    category: dashboards/protocol_overview
+  - id: 2828264
+    category: dashboards/protocol_overview
+  - id: 2829077
+    category: dashboards/protocol_overview
+  - id: 2829096
+    category: dashboards/protocol_overview
+  - id: 2829170
+    category: dashboards/protocol_overview
+  - id: 2829184
+    category: dashboards/protocol_overview
+  - id: 2829199
+    category: dashboards/protocol_overview
+  - id: 2829234
+    category: dashboards/protocol_overview
+  - id: 2829254
+    category: dashboards/protocol_overview
+  - id: 2829894
+    category: dashboards/protocol_overview
+  - id: 2832498
+    category: dashboards/protocol_overview
+  - id: 2836724
+    category: dashboards/protocol_overview
+  - id: 2836761
+    category: dashboards/protocol_overview
+  - id: 2836792
+    category: dashboards/protocol_overview
+  - id: 2836798
+    category: dashboards/protocol_overview
+  - id: 2836807
+    category: dashboards/protocol_overview
+  - id: 2846023
+    category: dashboards/protocol_overview
+  - id: 2846430
+    category: dashboards/protocol_overview
+  - id: 2856125
+    category: dashboards/protocol_overview
+  - id: 2856297
+    category: dashboards/protocol_overview
+  - id: 2872955
+    category: dashboards/protocol_overview
+  - id: 2872964
+    category: dashboards/protocol_overview
+  - id: 2872975
+    category: dashboards/protocol_overview
+  - id: 2872977
+    category: dashboards/protocol_overview
+  - id: 2882120
+    category: dashboards/protocol_overview
+  - id: 2899647
+    category: dashboards/protocol_overview
+  - id: 2944378
+    category: dashboards/protocol_overview
+  - id: 2944392
+    category: dashboards/protocol_overview
+  - id: 2944405
+    category: dashboards/protocol_overview
+  - id: 2945043
+    category: dashboards/protocol_overview
+  - id: 2945137
+    category: dashboards/protocol_overview
+  - id: 2945205
+    category: dashboards/protocol_overview
+  - id: 2945207
+    category: dashboards/protocol_overview
+  - id: 2945243
+    category: dashboards/protocol_overview
+  - id: 2945245
+    category: dashboards/protocol_overview
+  - id: 2945246
+    category: dashboards/protocol_overview
+  - id: 2945637
+    category: dashboards/protocol_overview
+  - id: 2950416
+    category: dashboards/protocol_overview
+  - id: 2960846
+    category: dashboards/protocol_overview
+  - id: 2960860
+    category: dashboards/protocol_overview
+  - id: 2960870
+    category: dashboards/protocol_overview
+  - id: 2960887
+    category: dashboards/protocol_overview
+  - id: 2960905
+    category: dashboards/protocol_overview
+  - id: 2969197
+    category: dashboards/protocol_overview
+  - id: 2995992
+    category: dashboards/protocol_overview
+  - id: 2996010
+    category: dashboards/protocol_overview
+  - id: 2998457
+    category: dashboards/protocol_overview
+  - id: 2998465
+    category: dashboards/protocol_overview
+  - id: 2998487
+    category: dashboards/protocol_overview
+  - id: 2998828
+    category: dashboards/protocol_overview
+  - id: 2998829
+    category: dashboards/protocol_overview
+  - id: 2999200
+    category: dashboards/protocol_overview
+  - id: 2999209
+    category: dashboards/protocol_overview
+  - id: 2999836
+    category: dashboards/protocol_overview
+  - id: 2999842
+    category: dashboards/protocol_overview
+  - id: 2999890
+    category: dashboards/protocol_overview
+  - id: 2999893
+    category: dashboards/protocol_overview
+  - id: 2999897
+    category: dashboards/protocol_overview
+  - id: 3004790
+    category: dashboards/protocol_overview
+  - id: 3008193
+    category: dashboards/protocol_overview
+  - id: 3032958
+    category: dashboards/protocol_overview
+  - id: 3033130
+    category: dashboards/protocol_overview
+  - id: 3033138
+    category: dashboards/protocol_overview
+  - id: 3041286
+    category: dashboards/protocol_overview
+  - id: 3051113
+    category: dashboards/protocol_overview
+  - id: 3054490
+    category: dashboards/protocol_overview
+  - id: 3054511
+    category: dashboards/protocol_overview
+  - id: 3058676
+    category: dashboards/protocol_overview
+  - id: 3065107
+    category: dashboards/protocol_overview
+  - id: 3090095
+    category: dashboards/protocol_overview
+  - id: 3092409
+    category: dashboards/protocol_overview
+  - id: 3092661
+    category: dashboards/protocol_overview
+  - id: 3092857
+    category: dashboards/protocol_overview
+  - id: 3093016
+    category: dashboards/protocol_overview
+  - id: 3093047
+    category: dashboards/protocol_overview
+  - id: 3093245
+    category: dashboards/protocol_overview
+  - id: 3093521
+    category: dashboards/protocol_overview
+  - id: 3093543
+    category: dashboards/protocol_overview
+  - id: 3093820
+    category: dashboards/protocol_overview
+  - id: 3093859
+    category: dashboards/protocol_overview
+  - id: 3093942
+    category: dashboards/protocol_overview
+  - id: 3094085
+    category: dashboards/protocol_overview
+  - id: 3094729
+    category: dashboards/protocol_overview
+  - id: 3094753
+    category: dashboards/protocol_overview
+  - id: 3094768
+    category: dashboards/protocol_overview
+  - id: 3094774
+    category: dashboards/protocol_overview
+  - id: 3094785
+    category: dashboards/protocol_overview
+  - id: 3094883
+    category: dashboards/protocol_overview
+  - id: 3094906
+    category: dashboards/protocol_overview
+  - id: 3101943
+    category: dashboards/protocol_overview
+  - id: 3102162
+    category: dashboards/protocol_overview
+  - id: 3102175
+    category: dashboards/protocol_overview
+  - id: 3102195
+    category: dashboards/protocol_overview
+  - id: 3102567
+    category: dashboards/protocol_overview
+  - id: 3102571
+    category: dashboards/protocol_overview
+  - id: 3102575
+    category: dashboards/protocol_overview
+  - id: 3102583
+    category: dashboards/protocol_overview
+  - id: 3107818
+    category: dashboards/protocol_overview
+  - id: 3108117
+    category: dashboards/protocol_overview
+  - id: 3108158
+    category: dashboards/protocol_overview
+  - id: 3112667
+    category: dashboards/protocol_overview
+  - id: 3113498
+    category: dashboards/protocol_overview
+  - id: 3117642
+    category: dashboards/protocol_overview
+  - id: 3118700
+    category: dashboards/protocol_overview
+  - id: 3119405
+    category: dashboards/protocol_overview
+  - id: 3120473
+    category: dashboards/protocol_overview
+  - id: 3122860
+    category: dashboards/protocol_overview
+  - id: 3124239
+    category: dashboards/protocol_overview
+  - id: 3124419
+    category: dashboards/protocol_overview
+  - id: 3124447
+    category: dashboards/protocol_overview
+  - id: 3135247
+    category: dashboards/protocol_overview
+  - id: 3140829
+    category: dashboards/protocol_overview
+  - id: 3141235
+    category: dashboards/protocol_overview
+  - id: 3141555
+    category: dashboards/protocol_overview
+  - id: 3142123
+    category: dashboards/protocol_overview
+  - id: 3144841
+    category: dashboards/protocol_overview
+  - id: 3145976
+    category: dashboards/protocol_overview
+  - id: 3147622
+    category: dashboards/protocol_overview
+  - id: 3147646
+    category: dashboards/protocol_overview
+  - id: 3148250
+    category: dashboards/protocol_overview
+  - id: 3149076
+    category: dashboards/protocol_overview
+  - id: 3149223
+    category: dashboards/protocol_overview
+  - id: 3150767
+    category: dashboards/protocol_overview
+  - id: 3150793
+    category: dashboards/protocol_overview
+  - id: 3151340
+    category: dashboards/protocol_overview
+  - id: 3151572
+    category: dashboards/protocol_overview
+  - id: 3157832
+    category: dashboards/protocol_overview
+  - id: 3158866
+    category: dashboards/protocol_overview
+  - id: 3159081
+    category: dashboards/protocol_overview
+  - id: 3161476
+    category: dashboards/protocol_overview
+  - id: 3168101
+    category: dashboards/protocol_overview
+  - id: 3168271
+    category: dashboards/protocol_overview
+  - id: 3169032
+    category: dashboards/protocol_overview
+  - id: 3178072
+    category: dashboards/protocol_overview
+  - id: 3222238
+    category: dashboards/protocol_overview
+  - id: 3222256
+    category: dashboards/protocol_overview
+  - id: 3222705
+    category: dashboards/protocol_overview
+  - id: 3222881
+    category: dashboards/protocol_overview
+  - id: 3223065
+    category: dashboards/protocol_overview
+  - id: 3223093
+    category: dashboards/protocol_overview
+  - id: 3223158
+    category: dashboards/protocol_overview
+  - id: 3223289
+    category: dashboards/protocol_overview
+  - id: 3223316
+    category: dashboards/protocol_overview
+  - id: 3223375
+    category: dashboards/protocol_overview
+  - id: 3228092
+    category: dashboards/protocol_overview
+  - id: 3228122
+    category: dashboards/protocol_overview
+  - id: 3228155
+    category: dashboards/protocol_overview
+  - id: 3228182
+    category: dashboards/protocol_overview
+  - id: 3237056
+    category: dashboards/protocol_overview
+  - id: 3253042
+    category: dashboards/protocol_overview
+  - id: 3253442
+    category: dashboards/protocol_overview
+  - id: 3262955
+    category: dashboards/protocol_overview
+  - id: 3266768
+    category: dashboards/protocol_overview
+  - id: 3266830
+    category: dashboards/protocol_overview
+  - id: 3266838
+    category: dashboards/protocol_overview
+  - id: 3266845
+    category: dashboards/protocol_overview
+  - id: 3266879
+    category: dashboards/protocol_overview
+  - id: 3266997
+    category: dashboards/protocol_overview
+  - id: 3268220
+    category: dashboards/protocol_overview
+  - id: 3269653
+    category: dashboards/protocol_overview
+  - id: 3269726
+    category: dashboards/protocol_overview
+  - id: 3271377
+    category: dashboards/protocol_overview
+  - id: 3271403
+    category: dashboards/protocol_overview
+  - id: 3274285
+    category: dashboards/protocol_overview
+  - id: 3277539
+    category: dashboards/protocol_overview
+  - id: 3277841
+    category: dashboards/protocol_overview
+  - id: 3277985
+    category: dashboards/protocol_overview
+  - id: 3277991
+    category: dashboards/protocol_overview
+  - id: 3287201
+    category: dashboards/protocol_overview
+  - id: 3293596
+    category: dashboards/protocol_overview
+  - id: 3294667
+    category: dashboards/protocol_overview
+  - id: 3298571
+    category: dashboards/protocol_overview
+  - id: 3299252
+    category: dashboards/protocol_overview
+  - id: 3299936
+    category: dashboards/protocol_overview
+  - id: 3304306
+    category: dashboards/protocol_overview
+  - id: 3312454
+    category: dashboards/protocol_overview
+  - id: 3312592
+    category: dashboards/protocol_overview
+  - id: 3312595
+    category: dashboards/protocol_overview
+  - id: 3327499
+    category: dashboards/protocol_overview
+  - id: 3336992
+    category: dashboards/protocol_overview
+  - id: 3340148
+    category: dashboards/protocol_overview
+  - id: 3341911
+    category: dashboards/protocol_overview
+  - id: 3358139
+    category: dashboards/protocol_overview
+  - id: 3358237
+    category: dashboards/protocol_overview
+  - id: 3358333
+    category: dashboards/protocol_overview
+  - id: 3360296
+    category: dashboards/protocol_overview
+  - id: 3363818
+    category: dashboards/protocol_overview
+  - id: 3372064
+    category: dashboards/protocol_overview
+  - id: 3372434
+    category: dashboards/protocol_overview
+  - id: 3372577
+    category: dashboards/protocol_overview
+  - id: 3372708
+    category: dashboards/protocol_overview
+  - id: 3372731
+    category: dashboards/protocol_overview
+  - id: 3372735
+    category: dashboards/protocol_overview
+  - id: 3373184
+    category: dashboards/protocol_overview
+  - id: 3375874
+    category: dashboards/protocol_overview
+  - id: 3379667
+    category: dashboards/protocol_overview
+  - id: 3380377
+    category: dashboards/protocol_overview
+  - id: 3382339
+    category: dashboards/protocol_overview
+  - id: 3382363
+    category: dashboards/protocol_overview
+  - id: 3387710
+    category: dashboards/protocol_overview
+  - id: 3390993
+    category: dashboards/protocol_overview
+  - id: 3401197
+    category: dashboards/protocol_overview
+  - id: 3417088
+    category: dashboards/protocol_overview
+  - id: 3417123
+    category: dashboards/protocol_overview
+  - id: 3446122
+    category: dashboards/protocol_overview
+  - id: 3454598
+    category: dashboards/protocol_overview
+  - id: 3454622
+    category: dashboards/protocol_overview
+  - id: 3456471
+    category: dashboards/protocol_overview
+  - id: 3457335
+    category: dashboards/protocol_overview
+  - id: 3457394
+    category: dashboards/protocol_overview
+  - id: 3460011
+    category: dashboards/protocol_overview
+  - id: 3464838
+    category: dashboards/protocol_overview
+  - id: 3468608
+    category: dashboards/protocol_overview
+  - id: 3468667
+    category: dashboards/protocol_overview
+  - id: 3468675
+    category: dashboards/protocol_overview
+  - id: 3475121
+    category: dashboards/protocol_overview
+  - id: 3478642
+    category: dashboards/protocol_overview
+  - id: 3478729
+    category: dashboards/protocol_overview
+  - id: 3478768
+    category: dashboards/protocol_overview
+  - id: 3479447
+    category: dashboards/protocol_overview
+  - id: 3480969
+    category: dashboards/protocol_overview
+  - id: 3493859
+    category: dashboards/protocol_overview
+  - id: 3500282
+    category: dashboards/protocol_overview
+  - id: 3516016
+    category: dashboards/protocol_overview
+  - id: 3516138
+    category: dashboards/protocol_overview
+  - id: 3516281
+    category: dashboards/protocol_overview
+  - id: 3516357
+    category: dashboards/protocol_overview
+  - id: 3518104
+    category: dashboards/protocol_overview
+  - id: 3520112
+    category: dashboards/protocol_overview
+  - id: 3530173
+    category: dashboards/protocol_overview
+  - id: 3537355
+    category: dashboards/protocol_overview
+  - id: 3540744
+    category: dashboards/protocol_overview
+  - id: 3544846
+    category: dashboards/protocol_overview
+  - id: 3545262
+    category: dashboards/protocol_overview
+  - id: 3547828
+    category: dashboards/protocol_overview
+  - id: 3547858
+    category: dashboards/protocol_overview
+  - id: 3547935
+    category: dashboards/protocol_overview
+  - id: 3547951
+    category: dashboards/protocol_overview
+  - id: 3548050
+    category: dashboards/protocol_overview
+  - id: 3548066
+    category: dashboards/protocol_overview
+  - id: 3548470
+    category: dashboards/protocol_overview
+  - id: 3561510
+    category: dashboards/protocol_overview
+  - id: 3566891
+    category: dashboards/protocol_overview
+  - id: 3567585
+    category: dashboards/protocol_overview
+  - id: 3567767
+    category: dashboards/protocol_overview
+  - id: 3580692
+    category: dashboards/protocol_overview
+  - id: 3583398
+    category: dashboards/protocol_overview
+  - id: 3583605
+    category: dashboards/protocol_overview
+  - id: 3590605
+    category: dashboards/protocol_overview
+  - id: 3608630
+    category: dashboards/protocol_overview
+  - id: 3608718
+    category: dashboards/protocol_overview
+  - id: 3624893
+    category: dashboards/protocol_overview
+  - id: 3624916
+    category: dashboards/protocol_overview
+  - id: 3625593
+    category: dashboards/protocol_overview
+  - id: 3625596
+    category: dashboards/protocol_overview
+  - id: 3625769
+    category: dashboards/protocol_overview
+  - id: 3625994
+    category: dashboards/protocol_overview
+  - id: 3626188
+    category: dashboards/protocol_overview
+  - id: 3626257
+    category: dashboards/protocol_overview
+  - id: 3628820
+    category: dashboards/protocol_overview
+  - id: 3628916
+    category: dashboards/protocol_overview
+  - id: 3629024
+    category: dashboards/protocol_overview
+  - id: 3629064
+    category: dashboards/protocol_overview
+  - id: 3629395
+    category: dashboards/protocol_overview
+  - id: 3629681
+    category: dashboards/protocol_overview
+  - id: 3629696
+    category: dashboards/protocol_overview
+  - id: 3629742
+    category: dashboards/protocol_overview
+  - id: 3629980
+    category: dashboards/protocol_overview
+  - id: 3630103
+    category: dashboards/protocol_overview
+  - id: 3630153
+    category: dashboards/protocol_overview
+  - id: 3630216
+    category: dashboards/protocol_overview
+  - id: 3630260
+    category: dashboards/protocol_overview
+  - id: 3630446
+    category: dashboards/protocol_overview
+  - id: 3630519
+    category: dashboards/protocol_overview
+  - id: 3632548
+    category: dashboards/protocol_overview
+  - id: 3632600
+    category: dashboards/protocol_overview
+  - id: 3632611
+    category: dashboards/protocol_overview
+  - id: 3632620
+    category: dashboards/protocol_overview
+  - id: 3632646
+    category: dashboards/protocol_overview
+  - id: 3632727
+    category: dashboards/protocol_overview
+  - id: 3634086
+    category: dashboards/protocol_overview
+  - id: 3634166
+    category: dashboards/protocol_overview
+  - id: 3644589
+    category: dashboards/protocol_overview
+  - id: 3645067
+    category: dashboards/protocol_overview
+  - id: 3660271
+    category: dashboards/protocol_overview
+  - id: 3662335
+    category: dashboards/protocol_overview
+  - id: 3663975
+    category: dashboards/protocol_overview
+  - id: 3664390
+    category: dashboards/protocol_overview
+  - id: 3665427
+    category: dashboards/protocol_overview
+  - id: 3665682
+    category: dashboards/protocol_overview
+  - id: 3667837
+    category: dashboards/protocol_overview
+  - id: 3667888
+    category: dashboards/protocol_overview
+  - id: 3668066
+    category: dashboards/protocol_overview
+  - id: 3671248
+    category: dashboards/protocol_overview
+  - id: 3681920
+    category: dashboards/protocol_overview
+  - id: 3684422
+    category: dashboards/protocol_overview
+  - id: 3684456
+    category: dashboards/protocol_overview
+  - id: 3698929
+    category: dashboards/protocol_overview
+  - id: 3699365
+    category: dashboards/protocol_overview
+  - id: 3701027
+    category: dashboards/protocol_overview
+  - id: 3702727
+    category: dashboards/protocol_overview
+  - id: 3710971
+    category: dashboards/protocol_overview
+  - id: 3739653
+    category: dashboards/protocol_overview
+  - id: 3739888
+    category: dashboards/protocol_overview
+  - id: 3740015
+    category: dashboards/protocol_overview
+  - id: 3740061
+    category: dashboards/protocol_overview
+  - id: 3740070
+    category: dashboards/protocol_overview
+  - id: 3740107
+    category: dashboards/protocol_overview
+  - id: 3748761
+    category: dashboards/protocol_overview
+  - id: 3749600
+    category: dashboards/protocol_overview
+  - id: 3751238
+    category: dashboards/protocol_overview
+  - id: 3755809
+    category: dashboards/protocol_overview
+  - id: 3771267
+    category: dashboards/protocol_overview
+  - id: 3771533
+    category: dashboards/protocol_overview
+  - id: 3773128
+    category: dashboards/protocol_overview
+  - id: 3777544
+    category: dashboards/protocol_overview
+  - id: 3778080
+    category: dashboards/protocol_overview
+  - id: 3778295
+    category: dashboards/protocol_overview
+  - id: 3779027
+    category: dashboards/protocol_overview
+  - id: 3779147
+    category: dashboards/protocol_overview
+  - id: 3781662
+    category: dashboards/protocol_overview
+  - id: 3782710
+    category: dashboards/protocol_overview
+  - id: 3782924
+    category: dashboards/protocol_overview
+  - id: 3783887
+    category: dashboards/protocol_overview
+  - id: 3794035
+    category: dashboards/protocol_overview
+  - id: 3796474
+    category: dashboards/protocol_overview
+  - id: 3796477
+    category: dashboards/protocol_overview
+  - id: 3796487
+    category: dashboards/protocol_overview
+  - id: 3796551
+    category: dashboards/protocol_overview
+  - id: 3796560
+    category: dashboards/protocol_overview
+  - id: 3796585
+    category: dashboards/protocol_overview
+  - id: 3800298
+    category: dashboards/protocol_overview
+  - id: 3800367
+    category: dashboards/protocol_overview
+  - id: 3801068
+    category: dashboards/protocol_overview
+  - id: 3801575
+    category: dashboards/protocol_overview
+  - id: 3801590
+    category: dashboards/protocol_overview
+  - id: 3805489
+    category: dashboards/protocol_overview
+  - id: 3814268
+    category: dashboards/protocol_overview
+  - id: 3814652
+    category: dashboards/protocol_overview
+  - id: 3814781
+    category: dashboards/protocol_overview
+  - id: 3814790
+    category: dashboards/protocol_overview
+  - id: 3814803
+    category: dashboards/protocol_overview
+  - id: 3817238
+    category: dashboards/protocol_overview
+  - id: 3817247
+    category: dashboards/protocol_overview
+  - id: 3850452
+    category: dashboards/protocol_overview
+  - id: 3850686
+    category: dashboards/protocol_overview
+  - id: 3850805
+    category: dashboards/protocol_overview
+  - id: 3851356
+    category: dashboards/protocol_overview
+  - id: 3851357
+    category: dashboards/protocol_overview
+  - id: 3861074
+    category: dashboards/protocol_overview
+  - id: 3861085
+    category: dashboards/protocol_overview
+  - id: 3861547
+    category: dashboards/protocol_overview
+  - id: 3861550
+    category: dashboards/protocol_overview
+  - id: 3861603
+    category: dashboards/protocol_overview
+  - id: 3864489
+    category: dashboards/protocol_overview
+  - id: 3864618
+    category: dashboards/protocol_overview
+  - id: 3870871
+    category: dashboards/protocol_overview
+  - id: 3870882
+    category: dashboards/protocol_overview
+  - id: 3870935
+    category: dashboards/protocol_overview
+  - id: 3887153
+    category: dashboards/protocol_overview
+  - id: 3887195
+    category: dashboards/protocol_overview
+  - id: 3887199
+    category: dashboards/protocol_overview
+  - id: 3893510
+    category: dashboards/protocol_overview
+  - id: 3893595
+    category: dashboards/protocol_overview
+  - id: 3896093
+    category: dashboards/protocol_overview
+  - id: 3899130
+    category: dashboards/protocol_overview
+  - id: 3899954
+    category: dashboards/protocol_overview
+  - id: 3899966
+    category: dashboards/protocol_overview
+  - id: 3900033
+    category: dashboards/protocol_overview
+  - id: 3900041
+    category: dashboards/protocol_overview
+  - id: 3900042
+    category: dashboards/protocol_overview
+  - id: 3900057
+    category: dashboards/protocol_overview
+  - id: 3900061
+    category: dashboards/protocol_overview
+  - id: 3905855
+    category: dashboards/protocol_overview
+  - id: 3905875
+    category: dashboards/protocol_overview
+  - id: 3906007
+    category: dashboards/protocol_overview
+  - id: 3906009
+    category: dashboards/protocol_overview
+  - id: 3906011
+    category: dashboards/protocol_overview
+  - id: 3906015
+    category: dashboards/protocol_overview
+  - id: 3906017
+    category: dashboards/protocol_overview
+  - id: 3906025
+    category: dashboards/protocol_overview
+  - id: 3906030
+    category: dashboards/protocol_overview
+  - id: 3906031
+    category: dashboards/protocol_overview
+  - id: 3906038
+    category: dashboards/protocol_overview
+  - id: 3908658
+    category: dashboards/protocol_overview
+  - id: 3908663
+    category: dashboards/protocol_overview
+  - id: 3908675
+    category: dashboards/protocol_overview
+  - id: 3917556
+    category: dashboards/protocol_overview
+  - id: 3920715
+    category: dashboards/protocol_overview
+  - id: 3920718
+    category: dashboards/protocol_overview
+  - id: 3921278
+    category: dashboards/protocol_overview
+  - id: 3921285
+    category: dashboards/protocol_overview
+  - id: 3927337
+    category: dashboards/protocol_overview
+  - id: 3928469
+    category: dashboards/protocol_overview
+  - id: 3939196
+    category: dashboards/protocol_overview
+  - id: 3939213
+    category: dashboards/protocol_overview
+  - id: 3939280
+    category: dashboards/protocol_overview
+  - id: 3949964
+    category: dashboards/protocol_overview
+  - id: 3950016
+    category: dashboards/protocol_overview
+  - id: 3950019
+    category: dashboards/protocol_overview
+  - id: 3950128
+    category: dashboards/protocol_overview
+  - id: 3950200
+    category: dashboards/protocol_overview
+  - id: 3950248
+    category: dashboards/protocol_overview
+  - id: 3950369
+    category: dashboards/protocol_overview
+  - id: 3954397
+    category: dashboards/protocol_overview
+  - id: 3954402
+    category: dashboards/protocol_overview
+  - id: 3954404
+    category: dashboards/protocol_overview
+  - id: 3954410
+    category: dashboards/protocol_overview
+  - id: 3954412
+    category: dashboards/protocol_overview
+  - id: 3954595
+    category: dashboards/protocol_overview
+  - id: 3954600
+    category: dashboards/protocol_overview
+  - id: 3954605
+    category: dashboards/protocol_overview
+  - id: 3954614
+    category: dashboards/protocol_overview
+  - id: 3954616
+    category: dashboards/protocol_overview
+  - id: 3954624
+    category: dashboards/protocol_overview
+  - id: 3957751
+    category: dashboards/protocol_overview
+  - id: 3957792
+    category: dashboards/protocol_overview
+  - id: 3957949
+    category: dashboards/protocol_overview
+  - id: 3958333
+    category: dashboards/protocol_overview
+  - id: 3958364
+    category: dashboards/protocol_overview
+  - id: 3958410
+    category: dashboards/protocol_overview
+  - id: 3964868
+    category: dashboards/protocol_overview
+  - id: 3964979
+    category: dashboards/protocol_overview
+  - id: 3965056
+    category: dashboards/protocol_overview
+  - id: 3965060
+    category: dashboards/protocol_overview
+  - id: 3965064
+    category: dashboards/protocol_overview
+  - id: 3965065
+    category: dashboards/protocol_overview
+  - id: 3965068
+    category: dashboards/protocol_overview
+  - id: 3965104
+    category: dashboards/protocol_overview
+  - id: 3965112
+    category: dashboards/protocol_overview
+  - id: 3965119
+    category: dashboards/protocol_overview
+  - id: 3965124
+    category: dashboards/protocol_overview
+  - id: 3965198
+    category: dashboards/protocol_overview
+  - id: 3965206
+    category: dashboards/protocol_overview
+  - id: 3970741
+    category: dashboards/protocol_overview
+  - id: 3971574
+    category: dashboards/protocol_overview
+  - id: 3973837
+    category: dashboards/protocol_overview
+  - id: 3973852
+    category: dashboards/protocol_overview
+  - id: 3973991
+    category: dashboards/protocol_overview
+  - id: 3974017
+    category: dashboards/protocol_overview
+  - id: 3976357
+    category: dashboards/protocol_overview
+  - id: 3976530
+    category: dashboards/protocol_overview
+  - id: 3976703
+    category: dashboards/protocol_overview
+  - id: 3976710
+    category: dashboards/protocol_overview
+  - id: 3981181
+    category: dashboards/protocol_overview
+  - id: 3981256
+    category: dashboards/protocol_overview
+  - id: 3981342
+    category: dashboards/protocol_overview
+  - id: 3981420
+    category: dashboards/protocol_overview
+  - id: 3981751
+    category: dashboards/protocol_overview
+  - id: 3981779
+    category: dashboards/protocol_overview
+  - id: 3981781
+    category: dashboards/protocol_overview
+  - id: 3981894
+    category: dashboards/protocol_overview
+  - id: 3990833
+    category: dashboards/protocol_overview
+  - id: 3990841
+    category: dashboards/protocol_overview
+  - id: 3990850
+    category: dashboards/protocol_overview
+  - id: 3991038
+    category: dashboards/protocol_overview
+  - id: 3991060
+    category: dashboards/protocol_overview
+  - id: 3991064
+    category: dashboards/protocol_overview
+  - id: 3991121
+    category: dashboards/protocol_overview
+  - id: 3991127
+    category: dashboards/protocol_overview
+  - id: 3991133
+    category: dashboards/protocol_overview
+  - id: 3993444
+    category: dashboards/protocol_overview
+  - id: 3993541
+    category: dashboards/protocol_overview
+  - id: 3993627
+    category: dashboards/protocol_overview
+  - id: 3994013
+    category: dashboards/protocol_overview
+  - id: 3999509
+    category: dashboards/protocol_overview
+  - id: 3999714
+    category: dashboards/protocol_overview
+  - id: 4001808
+    category: dashboards/protocol_overview
+  - id: 4001811
+    category: dashboards/protocol_overview
+  - id: 4002381
+    category: dashboards/protocol_overview
+  - id: 4004772
+    category: dashboards/protocol_overview
+  - id: 4005171
+    category: dashboards/protocol_overview
+  - id: 4005633
+    category: dashboards/protocol_overview
+  - id: 4007145
+    category: dashboards/protocol_overview
+  - id: 4008271
+    category: dashboards/protocol_overview
+  - id: 4008624
+    category: dashboards/protocol_overview
+  - id: 4022098
+    category: dashboards/protocol_overview
+  - id: 4023009
+    category: dashboards/protocol_overview
+  - id: 4023187
+    category: dashboards/protocol_overview
+  - id: 4024379
+    category: dashboards/protocol_overview
+  - id: 4024403
+    category: dashboards/protocol_overview
+  - id: 4024424
+    category: dashboards/protocol_overview
+  - id: 4025328
+    category: dashboards/protocol_overview
+  - id: 4025331
+    category: dashboards/protocol_overview
+  - id: 4025336
+    category: dashboards/protocol_overview
+  - id: 4025600
+    category: dashboards/protocol_overview
+  - id: 4025662
+    category: dashboards/protocol_overview
+  - id: 4025664
+    category: dashboards/protocol_overview
+  - id: 4039839
+    category: dashboards/protocol_overview
+  - id: 4040450
+    category: dashboards/protocol_overview
+  - id: 4041586
+    category: dashboards/protocol_overview
+  - id: 4041730
+    category: dashboards/protocol_overview
+  - id: 4043394
+    category: dashboards/protocol_overview
+  - id: 4043590
+    category: dashboards/protocol_overview
+  - id: 4043700
+    category: dashboards/protocol_overview
+  - id: 4046283
+    category: dashboards/protocol_overview
+  - id: 4046322
+    category: dashboards/protocol_overview
+  - id: 4046652
+    category: dashboards/protocol_overview
+  - id: 4046669
+    category: dashboards/protocol_overview
+  - id: 4047210
+    category: dashboards/protocol_overview
+  - id: 4047969
+    category: dashboards/protocol_overview
+  - id: 4049431
+    category: dashboards/protocol_overview
+  - id: 4074143
+    category: dashboards/protocol_overview
+  - id: 4074245
+    category: dashboards/protocol_overview
+  - id: 4075127
+    category: dashboards/protocol_overview
+  - id: 4079967
+    category: dashboards/protocol_overview
+  - id: 4079977
+    category: dashboards/protocol_overview
+  - id: 4080393
+    category: dashboards/protocol_overview
+  - id: 4080427
+    category: dashboards/protocol_overview
+  - id: 4080520
+    category: dashboards/protocol_overview
+  - id: 4080537
+    category: dashboards/protocol_overview
+  - id: 4080567
+    category: dashboards/protocol_overview
+  - id: 4080577
+    category: dashboards/protocol_overview
+  - id: 4080584
+    category: dashboards/protocol_overview
+  - id: 4080604
+    category: dashboards/protocol_overview
+  - id: 4080619
+    category: dashboards/protocol_overview
+  - id: 4080631
+    category: dashboards/protocol_overview
+  - id: 4083500
+    category: dashboards/protocol_overview
+  - id: 4083591
+    category: dashboards/protocol_overview
+  - id: 4084179
+    category: dashboards/protocol_overview
+  - id: 4084195
+    category: dashboards/protocol_overview
+  - id: 4084214
+    category: dashboards/protocol_overview
+  - id: 4084220
+    category: dashboards/protocol_overview
+  - id: 4084251
+    category: dashboards/protocol_overview
+  - id: 4084292
+    category: dashboards/protocol_overview
+  - id: 4084329
+    category: dashboards/protocol_overview
+  - id: 4084338
+    category: dashboards/protocol_overview
+  - id: 4093231
+    category: dashboards/protocol_overview
+  - id: 4093396
+    category: dashboards/protocol_overview
+  - id: 4094652
+    category: dashboards/protocol_overview
+  - id: 4094663
+    category: dashboards/protocol_overview
+  - id: 4094758
+    category: dashboards/protocol_overview
+  - id: 4094761
+    category: dashboards/protocol_overview
+  - id: 4096567
+    category: dashboards/protocol_overview
+  - id: 4096678
+    category: dashboards/protocol_overview
+  - id: 4102799
+    category: dashboards/protocol_overview
+  - id: 4104279
+    category: dashboards/protocol_overview
+  - id: 4104304
+    category: dashboards/protocol_overview
+  - id: 4104309
+    category: dashboards/protocol_overview
+  - id: 4106403
+    category: dashboards/protocol_overview
+  - id: 4109250
+    category: dashboards/protocol_overview
+  - id: 4109260
+    category: dashboards/protocol_overview
+  - id: 4109263
+    category: dashboards/protocol_overview
+  - id: 4109264
+    category: dashboards/protocol_overview
+  - id: 4116495
+    category: dashboards/protocol_overview
+  - id: 4119803
+    category: dashboards/protocol_overview
+  - id: 4123011
+    category: dashboards/protocol_overview
+  - id: 4123031
+    category: dashboards/protocol_overview
+  - id: 4125575
+    category: dashboards/protocol_overview
+  - id: 4126956
+    category: dashboards/protocol_overview
+  - id: 4134754
+    category: dashboards/protocol_overview
+  - id: 4136649
+    category: dashboards/protocol_overview
+  - id: 4139176
+    category: dashboards/protocol_overview
+  - id: 4143143
+    category: dashboards/protocol_overview
+  - id: 4144023
+    category: dashboards/protocol_overview
+  - id: 4144030
+    category: dashboards/protocol_overview
+  - id: 4144874
+    category: dashboards/protocol_overview
+  - id: 4150286
+    category: dashboards/protocol_overview
+  - id: 4150300
+    category: dashboards/protocol_overview
+  - id: 4150879
+    category: dashboards/protocol_overview
+  - id: 4165286
+    category: dashboards/protocol_overview
+  - id: 4175112
+    category: dashboards/protocol_overview
+  - id: 4184283
+    category: dashboards/protocol_overview
+  - id: 4184288
+    category: dashboards/protocol_overview
+  - id: 4187601
+    category: dashboards/protocol_overview
+  - id: 4192995
+    category: dashboards/protocol_overview
+  - id: 4193577
+    category: dashboards/protocol_overview
+  - id: 4201040
+    category: dashboards/protocol_overview
+  - id: 4216221
+    category: dashboards/protocol_overview
+  - id: 4216295
+    category: dashboards/protocol_overview
+  - id: 4216707
+    category: dashboards/protocol_overview
+  - id: 4216715
+    category: dashboards/protocol_overview
+  - id: 4216946
+    category: dashboards/protocol_overview
+  - id: 4218397
+    category: dashboards/protocol_overview
+  - id: 4221505
+    category: dashboards/protocol_overview
+  - id: 4221517
+    category: dashboards/protocol_overview
+  - id: 4221566
+    category: dashboards/protocol_overview
+  - id: 4221579
+    category: dashboards/protocol_overview
+  - id: 4223635
+    category: dashboards/protocol_overview
+  - id: 4226745
+    category: dashboards/protocol_overview
+  - id: 4228689
+    category: dashboards/protocol_overview
+  - id: 4242041
+    category: dashboards/protocol_overview
+  - id: 4242170
+    category: dashboards/protocol_overview
+  - id: 4242214
+    category: dashboards/protocol_overview
+  - id: 4242238
+    category: dashboards/protocol_overview
+  - id: 4243040
+    category: dashboards/protocol_overview
+  - id: 4243048
+    category: dashboards/protocol_overview
+  - id: 4247325
+    category: dashboards/protocol_overview
+  - id: 4247335
+    category: dashboards/protocol_overview
+  - id: 4261646
+    category: dashboards/protocol_overview
+  - id: 4301820
+    category: dashboards/protocol_overview
+  - id: 4301939
+    category: dashboards/protocol_overview
+  - id: 4307121
+    category: dashboards/protocol_overview
+  - id: 4307129
+    category: dashboards/protocol_overview
+  - id: 4308514
+    category: dashboards/protocol_overview
+  - id: 4339097
+    category: dashboards/protocol_overview
+  - id: 4353152
+    category: dashboards/protocol_overview
+  - id: 4353229
+    category: dashboards/protocol_overview
+  - id: 4353281
+    category: dashboards/protocol_overview
+  - id: 4353295
+    category: dashboards/protocol_overview
+  - id: 4353327
+    category: dashboards/protocol_overview
+  - id: 4353343
+    category: dashboards/protocol_overview
+  - id: 4372005
+    category: dashboards/protocol_overview
+  - id: 4372444
+    category: dashboards/protocol_overview
+  - id: 4372452
+    category: dashboards/protocol_overview
+  - id: 4373111
+    category: dashboards/protocol_overview
+  - id: 4373453
+    category: dashboards/protocol_overview
+  - id: 4373461
+    category: dashboards/protocol_overview
+  - id: 4373470
+    category: dashboards/protocol_overview
+  - id: 4373500
+    category: dashboards/protocol_overview
+  - id: 4373521
+    category: dashboards/protocol_overview
+  - id: 4373530
+    category: dashboards/protocol_overview
+  - id: 4373539
+    category: dashboards/protocol_overview
+  - id: 4373552
+    category: dashboards/protocol_overview
+  - id: 4373573
+    category: dashboards/protocol_overview
+  - id: 4377174
+    category: dashboards/protocol_overview
+  - id: 4383062
+    category: dashboards/protocol_overview
+  - id: 4383125
+    category: dashboards/protocol_overview
+  - id: 4397295
+    category: dashboards/protocol_overview
+  - id: 4404580
+    category: dashboards/protocol_overview
+  - id: 4404883
+    category: dashboards/protocol_overview
+  - id: 4415176
+    category: dashboards/protocol_overview
+  - id: 4415607
+    category: dashboards/protocol_overview
+  - id: 4415668
+    category: dashboards/protocol_overview
+  - id: 4415693
+    category: dashboards/protocol_overview
+  - id: 4415703
+    category: dashboards/protocol_overview
+  - id: 4415782
+    category: dashboards/protocol_overview
+  - id: 4415861
+    category: dashboards/protocol_overview
+  - id: 4419172
+    category: dashboards/protocol_overview
+  - id: 4419204
+    category: dashboards/protocol_overview
+  - id: 4419214
+    category: dashboards/protocol_overview
+  - id: 4419265
+    category: dashboards/protocol_overview
+  - id: 4419278
+    category: dashboards/protocol_overview
+  - id: 4419412
+    category: dashboards/protocol_overview
+  - id: 4419420
+    category: dashboards/protocol_overview
+  - id: 4419496
+    category: dashboards/protocol_overview
+  - id: 4419508
+    category: dashboards/protocol_overview
+  - id: 4420276
+    category: dashboards/protocol_overview
+  - id: 4420303
+    category: dashboards/protocol_overview
+  - id: 4428144
+    category: dashboards/protocol_overview
+  - id: 4432303
+    category: dashboards/protocol_overview
+  - id: 4432340
+    category: dashboards/protocol_overview
+  - id: 4432532
+    category: dashboards/protocol_overview
+  - id: 4432590
+    category: dashboards/protocol_overview
+  - id: 4445360
+    category: dashboards/protocol_overview
+  - id: 4452435
+    category: dashboards/protocol_overview
+  - id: 4452977
+    category: dashboards/protocol_overview
+  - id: 4453032
+    category: dashboards/protocol_overview
+  - id: 4453217
+    category: dashboards/protocol_overview
+  - id: 4457242
+    category: dashboards/protocol_overview
+  - id: 4457887
+    category: dashboards/protocol_overview
+  - id: 4457927
+    category: dashboards/protocol_overview
+  - id: 4494479
+    category: dashboards/protocol_overview
+  - id: 4515495
+    category: dashboards/protocol_overview
+  - id: 4515594
+    category: dashboards/protocol_overview
+  - id: 4516242
+    category: dashboards/protocol_overview
+  - id: 4529436
+    category: dashboards/protocol_overview
+  - id: 4529501
+    category: dashboards/protocol_overview
+  - id: 4532548
+    category: dashboards/protocol_overview
+  - id: 4532570
+    category: dashboards/protocol_overview
+  - id: 4532772
+    category: dashboards/protocol_overview
+  - id: 4532901
+    category: dashboards/protocol_overview
+  - id: 4533213
+    category: dashboards/protocol_overview
+  - id: 4534665
+    category: dashboards/protocol_overview
+  - id: 4537952
+    category: dashboards/protocol_overview
+  - id: 4538068
+    category: dashboards/protocol_overview
+  - id: 4538395
+    category: dashboards/protocol_overview
+  - id: 4538853
+    category: dashboards/protocol_overview
+  - id: 4540163
+    category: dashboards/protocol_overview
+  - id: 4545850
+    category: dashboards/protocol_overview
+  - id: 4549390
+    category: dashboards/protocol_overview
+  - id: 4549627
+    category: dashboards/protocol_overview
+  - id: 4549830
+    category: dashboards/protocol_overview
+  - id: 4549881
+    category: dashboards/protocol_overview
+  - id: 4551067
+    category: dashboards/protocol_overview
+  - id: 4560669
+    category: dashboards/protocol_overview
+  - id: 4562057
+    category: dashboards/protocol_overview
+  - id: 4571278
+    category: dashboards/protocol_overview
+  - id: 4582454
+    category: dashboards/protocol_overview
+  - id: 4582507
+    category: dashboards/protocol_overview
+  - id: 4582991
+    category: dashboards/protocol_overview
+  - id: 4583089
+    category: dashboards/protocol_overview
+  - id: 4583750
+    category: dashboards/protocol_overview
+  - id: 4583763
+    category: dashboards/protocol_overview
+  - id: 4595154
+    category: dashboards/protocol_overview
+  - id: 4599903
+    category: dashboards/protocol_overview
+  - id: 4600099
+    category: dashboards/protocol_overview
+  - id: 4600102
+    category: dashboards/protocol_overview
+  - id: 4600227
+    category: dashboards/protocol_overview
+  - id: 4600250
+    category: dashboards/protocol_overview
+  - id: 4605635
+    category: dashboards/protocol_overview
+  - id: 4607004
+    category: dashboards/protocol_overview
+  - id: 4607005
+    category: dashboards/protocol_overview
+  - id: 4607167
+    category: dashboards/protocol_overview
+  - id: 4607181
+    category: dashboards/protocol_overview
+  - id: 4644217
+    category: dashboards/protocol_overview
+  - id: 4644257
+    category: dashboards/protocol_overview
+  - id: 4644480
+    category: dashboards/protocol_overview
+  - id: 4647533
+    category: dashboards/protocol_overview
+  - id: 4650222
+    category: dashboards/protocol_overview
+  - id: 4650252
+    category: dashboards/protocol_overview
+  - id: 4650256
+    category: dashboards/protocol_overview
+  - id: 4659056
+    category: dashboards/protocol_overview
+  - id: 4659062
+    category: dashboards/protocol_overview
+  - id: 4661153
+    category: dashboards/protocol_overview
+  - id: 4664084
+    category: dashboards/protocol_overview
+  - id: 4665624
+    category: dashboards/protocol_overview
+  - id: 4666740
+    category: dashboards/protocol_overview
+  - id: 4671431
+    category: dashboards/protocol_overview
+  - id: 4671558
+    category: dashboards/protocol_overview
+  - id: 4676797
+    category: dashboards/protocol_overview
+  - id: 4680591
+    category: dashboards/protocol_overview
+  - id: 4694852
+    category: dashboards/protocol_overview
+  - id: 4701826
+    category: dashboards/protocol_overview
+  - id: 4706830
+    category: dashboards/protocol_overview
+  - id: 4707065
+    category: dashboards/protocol_overview
+  - id: 4708077
+    category: dashboards/protocol_overview
+  - id: 4708152
+    category: dashboards/protocol_overview
+  - id: 4708527
+    category: dashboards/protocol_overview
+  - id: 4717791
+    category: dashboards/protocol_overview
+  - id: 4718394
+    category: dashboards/protocol_overview
+  - id: 4734806
+    category: dashboards/protocol_overview
+  - id: 4734857
+    category: dashboards/protocol_overview
+  - id: 4734863
+    category: dashboards/protocol_overview
+  - id: 4739347
+    category: dashboards/protocol_overview
+  - id: 4739397
+    category: dashboards/protocol_overview
+  - id: 4740108
+    category: dashboards/protocol_overview
+  - id: 4740208
+    category: dashboards/protocol_overview
+  - id: 4740860
+    category: dashboards/protocol_overview
+  - id: 4745031
+    category: dashboards/protocol_overview
+  - id: 4745987
+    category: dashboards/protocol_overview
+  - id: 4746663
+    category: dashboards/protocol_overview
+  - id: 4746791
+    category: dashboards/protocol_overview
+  - id: 4752291
+    category: dashboards/protocol_overview
+  - id: 4761874
+    category: dashboards/protocol_overview
+  - id: 4761921
+    category: dashboards/protocol_overview
+  - id: 4771209
+    category: dashboards/protocol_overview
+  - id: 4771257
+    category: dashboards/protocol_overview
+  - id: 4771259
+    category: dashboards/protocol_overview
+  - id: 4785228
+    category: dashboards/protocol_overview
+  - id: 4786655
+    category: dashboards/protocol_overview
+  - id: 4786688
+    category: dashboards/protocol_overview
+  - id: 4805654
+    category: dashboards/protocol_overview
+  - id: 4836564
+    category: dashboards/protocol_overview
+  - id: 4837895
+    category: dashboards/protocol_overview
+  - id: 4837931
+    category: dashboards/protocol_overview
+  - id: 4837984
+    category: dashboards/protocol_overview
+  - id: 4838022
+    category: dashboards/protocol_overview
+  - id: 4838042
+    category: dashboards/protocol_overview
+  - id: 4838231
+    category: dashboards/protocol_overview
+  - id: 4838241
+    category: dashboards/protocol_overview
+  - id: 4838262
+    category: dashboards/protocol_overview
+  - id: 4841425
+    category: dashboards/protocol_overview
+  - id: 4841954
+    category: dashboards/protocol_overview
+  - id: 4846273
+    category: dashboards/protocol_overview
+  - id: 4874163
+    category: dashboards/protocol_overview
+  - id: 4878068
+    category: dashboards/protocol_overview
+  - id: 4878127
+    category: dashboards/protocol_overview
+  - id: 4901330
+    category: dashboards/protocol_overview
+  - id: 4944569
+    category: dashboards/protocol_overview
+  - id: 4989132
+    category: dashboards/protocol_overview
+  - id: 4998742
+    category: dashboards/protocol_overview
+  - id: 5019550
+    category: dashboards/protocol_overview
+  - id: 5057847
+    category: dashboards/protocol_overview
+  - id: 5058179
+    category: dashboards/protocol_overview
+  - id: 5089450
+    category: dashboards/protocol_overview
+  - id: 5089893
+    category: dashboards/protocol_overview
+  - id: 5173964
+    category: dashboards/protocol_overview
+  - id: 5174507
+    category: dashboards/protocol_overview
+  - id: 5175072
+    category: dashboards/protocol_overview
+  - id: 5194132
+    category: dashboards/protocol_overview
+  - id: 5194142
+    category: dashboards/protocol_overview
+  - id: 5194146
+    category: dashboards/protocol_overview
+  - id: 5194152
+    category: dashboards/protocol_overview
+  - id: 5194155
+    category: dashboards/protocol_overview
+  - id: 5194163
+    category: dashboards/protocol_overview
+  - id: 5194171
+    category: dashboards/protocol_overview
+  - id: 5194251
+    category: dashboards/protocol_overview
+  - id: 5194273
+    category: dashboards/protocol_overview
+  - id: 5244620
+    category: dashboards/protocol_overview
+  - id: 5246051
+    category: dashboards/protocol_overview
+  - id: 5255924
+    category: dashboards/protocol_overview
+  - id: 5255953
+    category: dashboards/protocol_overview
+  - id: 5354973
+    category: dashboards/protocol_overview
+  - id: 5436053
+    category: dashboards/protocol_overview
+  - id: 5437526
+    category: dashboards/protocol_overview
+  - id: 5437700
+    category: dashboards/protocol_overview
+  - id: 5437747
+    category: dashboards/protocol_overview
+  - id: 5446936
+    category: dashboards/protocol_overview
+  - id: 5447228
+    category: dashboards/protocol_overview
+  - id: 5447277
+    category: dashboards/protocol_overview
+  - id: 5448876
+    category: dashboards/protocol_overview
+  - id: 5517435
+    category: dashboards/protocol_overview
+  - id: 5531550
+    category: dashboards/protocol_overview
+  - id: 5531592
+    category: dashboards/protocol_overview
+  - id: 5534409
+    category: dashboards/protocol_overview
+  - id: 5534523
+    category: dashboards/protocol_overview
+  - id: 5589905
+    category: dashboards/protocol_overview
+  - id: 5616254
+    category: dashboards/protocol_overview
+  - id: 5616702
+    category: dashboards/protocol_overview
+  - id: 5622012
+    category: dashboards/protocol_overview
+  - id: 5622030
+    category: dashboards/protocol_overview
+  - id: 5622225
+    category: dashboards/protocol_overview
+  - id: 5622240
+    category: dashboards/protocol_overview
+  - id: 5651796
+    category: dashboards/protocol_overview
+  - id: 5652148
+    category: dashboards/protocol_overview
+  - id: 5652571
+    category: dashboards/protocol_overview
+  - id: 5661995
+    category: dashboards/protocol_overview
+  - id: 5662006
+    category: dashboards/protocol_overview
+  - id: 5662012
+    category: dashboards/protocol_overview
+  - id: 5662182
+    category: dashboards/protocol_overview
+  - id: 5662428
+    category: dashboards/protocol_overview
+  - id: 5663116
+    category: dashboards/protocol_overview
+  - id: 5663591
+    category: dashboards/protocol_overview
+  - id: 5669087
+    category: dashboards/protocol_overview
+  - id: 5725971
+    category: dashboards/protocol_overview
+  - id: 5725999
+    category: dashboards/protocol_overview
+  - id: 5729411
+    category: dashboards/protocol_overview
+  - id: 5729496
+    category: dashboards/protocol_overview
+  - id: 5749958
+    category: dashboards/protocol_overview
+  - id: 5756191
+    category: dashboards/protocol_overview
+  - id: 5757238
+    category: dashboards/protocol_overview
+  - id: 5757256
+    category: dashboards/protocol_overview
+  - id: 5789026
+    category: dashboards/protocol_overview
+  - id: 5803341
+    category: dashboards/protocol_overview
+  - id: 5803376
+    category: dashboards/protocol_overview
+  - id: 5803387
+    category: dashboards/protocol_overview
+  - id: 5803397
+    category: dashboards/protocol_overview
+  - id: 5803417
+    category: dashboards/protocol_overview
+  - id: 5803439
+    category: dashboards/protocol_overview
+  - id: 5803444
+    category: dashboards/protocol_overview
+  - id: 5803465
+    category: dashboards/protocol_overview
+  - id: 5808129
+    category: dashboards/protocol_overview
+  - id: 5808136
+    category: dashboards/protocol_overview
+  - id: 5808143
+    category: dashboards/protocol_overview
+  - id: 5808150
+    category: dashboards/protocol_overview
+  - id: 5808262
+    category: dashboards/protocol_overview
+  - id: 5808271
+    category: dashboards/protocol_overview
+  - id: 5808278
+    category: dashboards/protocol_overview
+  - id: 5808288
+    category: dashboards/protocol_overview
+  - id: 5809855
+    category: dashboards/protocol_overview
+  - id: 5825146
+    category: dashboards/protocol_overview
+  - id: 5825675
+    category: dashboards/protocol_overview
+  - id: 5830780
+    category: dashboards/protocol_overview
+  - id: 5830946
+    category: dashboards/protocol_overview
+  - id: 5839281
+    category: dashboards/protocol_overview
+  - id: 5840075
+    category: dashboards/protocol_overview
+  - id: 5840086
+    category: dashboards/protocol_overview
+  - id: 5840112
+    category: dashboards/protocol_overview
+  - id: 5840132
+    category: dashboards/protocol_overview
+  - id: 5840155
+    category: dashboards/protocol_overview
+  - id: 5840185
+    category: dashboards/protocol_overview
+  - id: 5840205
+    category: dashboards/protocol_overview
+  - id: 5840258
+    category: dashboards/protocol_overview
+  - id: 5840304
+    category: dashboards/protocol_overview
+  - id: 5840326
+    category: dashboards/protocol_overview
+  - id: 5840334
+    category: dashboards/protocol_overview
+  - id: 5840340
+    category: dashboards/protocol_overview
+  - id: 5840345
+    category: dashboards/protocol_overview
+  - id: 5840352
+    category: dashboards/protocol_overview
+  - id: 5840362
+    category: dashboards/protocol_overview
+  - id: 5840419
+    category: dashboards/protocol_overview
+  - id: 5840461
+    category: dashboards/protocol_overview
+  - id: 5840465
+    category: dashboards/protocol_overview
+  - id: 5840474
+    category: dashboards/protocol_overview
+  - id: 5840479
+    category: dashboards/protocol_overview
+  - id: 5840484
+    category: dashboards/protocol_overview
+  - id: 5840493
+    category: dashboards/protocol_overview
+  - id: 5840495
+    category: dashboards/protocol_overview
+  - id: 5840620
+    category: dashboards/protocol_overview
+  - id: 5840626
+    category: dashboards/protocol_overview
+  - id: 5840632
+    category: dashboards/protocol_overview
+  - id: 5840636
+    category: dashboards/protocol_overview
+  - id: 5840641
+    category: dashboards/protocol_overview
+  - id: 5840643
+    category: dashboards/protocol_overview
+  - id: 5840645
+    category: dashboards/protocol_overview
+  - id: 5840647
+    category: dashboards/protocol_overview
+  - id: 5840650
+    category: dashboards/protocol_overview
+  - id: 5840683
+    category: dashboards/protocol_overview
+  - id: 5841048
+    category: dashboards/protocol_overview
+  - id: 5841054
+    category: dashboards/protocol_overview
+  - id: 5841058
+    category: dashboards/protocol_overview
+  - id: 5841059
+    category: dashboards/protocol_overview
+  - id: 5841062
+    category: dashboards/protocol_overview
+  - id: 5841064
+    category: dashboards/protocol_overview
+  - id: 5841073
+    category: dashboards/protocol_overview
+  - id: 5841077
+    category: dashboards/protocol_overview
+  - id: 5849514
+    category: dashboards/protocol_overview
+  - id: 5874640
+    category: dashboards/protocol_overview
+  - id: 5874807
+    category: dashboards/protocol_overview
+  - id: 5874871
+    category: dashboards/protocol_overview
+  - id: 5875552
+    category: dashboards/protocol_overview
+  - id: 5875682
+    category: dashboards/protocol_overview
+  - id: 5882946
+    category: dashboards/protocol_overview
+  - id: 5891901
+    category: dashboards/protocol_overview
+  - id: 5892290
+    category: dashboards/protocol_overview
+  - id: 5894389
+    category: dashboards/protocol_overview
+  - id: 5894982
+    category: dashboards/protocol_overview
+  - id: 5900445
+    category: dashboards/protocol_overview
+  - id: 5900650
+    category: dashboards/protocol_overview
+  - id: 5900765
+    category: dashboards/protocol_overview
+  - id: 5900836
+    category: dashboards/protocol_overview
+  - id: 5901413
+    category: dashboards/protocol_overview
+  - id: 5907914
+    category: dashboards/protocol_overview
+  - id: 5908179
+    category: dashboards/protocol_overview
+  - id: 5920237
+    category: dashboards/protocol_overview
+  - id: 5942719
+    category: dashboards/protocol_overview
+  - id: 5942752
+    category: dashboards/protocol_overview
+  - id: 5972928
+    category: dashboards/protocol_overview
+  - id: 5997377
+    category: dashboards/protocol_overview
+  - id: 6079536
+    category: dashboards/protocol_overview
+  - id: 6126675
+    category: dashboards/protocol_overview
+  - id: 6288998
+    category: dashboards/protocol_overview
+  - id: 6289631
+    category: dashboards/protocol_overview
+  - id: 6293954
+    category: dashboards/protocol_overview
+  - id: 6340394
+    category: dashboards/protocol_overview
+  - id: 6341548
+    category: dashboards/protocol_overview
+  - id: 6347454
+    category: dashboards/protocol_overview
+  - id: 6347519
+    category: dashboards/protocol_overview
+  - id: 6350671
+    category: dashboards/protocol_overview
+  - id: 6350696
+    category: dashboards/protocol_overview
+  - id: 6401924
+    category: dashboards/protocol_overview
+  - id: 6484765
+    category: dashboards/protocol_overview
+  - id: 6521384
+    category: dashboards/protocol_overview
+  - id: 6521495
+    category: dashboards/protocol_overview
+  - id: 6524115
+    category: dashboards/protocol_overview
+  - id: 6530164
+    category: dashboards/protocol_overview
+  - id: 6535931
+    category: dashboards/protocol_overview
+  - id: 6536203
+    category: dashboards/protocol_overview
+  - id: 6544315
+    category: dashboards/protocol_overview
+  - id: 6576501
+    category: dashboards/protocol_overview
+  - id: 6578643
+    category: dashboards/protocol_overview
+  - id: 6587926
+    category: dashboards/protocol_overview
+  - id: 6672376
+    category: dashboards/protocol_overview
+  - id: 6672388
+    category: dashboards/protocol_overview
+  - id: 6672391
+    category: dashboards/protocol_overview
+  - id: 6672392
+    category: dashboards/protocol_overview
+  - id: 6675227
+    category: dashboards/protocol_overview
+  - id: 6675327
+    category: dashboards/protocol_overview
+  - id: 6675357
+    category: dashboards/protocol_overview
+  - id: 6675399
+    category: dashboards/protocol_overview
+  - id: 6676090
+    category: dashboards/protocol_overview
+  - id: 6676121
+    category: dashboards/protocol_overview
+  - id: 6676346
+    category: dashboards/protocol_overview
+  - id: 6681596
+    category: dashboards/protocol_overview
+  - id: 6681604
+    category: dashboards/protocol_overview
+  - id: 6693073
+    category: dashboards/protocol_overview
+  - id: 6693198
+    category: dashboards/protocol_overview
+  - id: 6693219
+    category: dashboards/protocol_overview
+  - id: 6754098
+    category: dashboards/protocol_overview
+  - id: 6768510
+    category: dashboards/protocol_overview
+  - id: 6768592
+    category: dashboards/protocol_overview
+  - id: 6768760
+    category: dashboards/protocol_overview
+  - id: 6768825
+    category: dashboards/protocol_overview
+  - id: 6768837
+    category: dashboards/protocol_overview
+  - id: 6768854
+    category: dashboards/protocol_overview
+  - id: 6768880
+    category: dashboards/protocol_overview
+  - id: 6768881
+    category: dashboards/protocol_overview
+  - id: 6773472
+    category: dashboards/protocol_overview
+  - id: 6773476
+    category: dashboards/protocol_overview
+  - id: 6773488
+    category: dashboards/protocol_overview
+  - id: 6773496
+    category: dashboards/protocol_overview
+  - id: 6773587
+    category: dashboards/protocol_overview
+  - id: 6773608
+    category: dashboards/protocol_overview
+  - id: 6773629
+    category: dashboards/protocol_overview
+
+  # --- Balancer core (Phase 2: Discovery) ---
+  #
+  # Dune does not expose a single public "list all queries on this dashboard" API
+  # without auth; dashboard HTML is client-rendered. Export IDs from the UI per
+  # docs/DISCOVERY.md, then uncomment and fill entries like:
+  #
+  #   - id: 1234567
+  #     category: volume
+  #   - id: 2345678
+  #     category: dashboards/protocol_overview
+  #
+  # Categories must match a subdirectory under balancer/ (e.g. pools/weighted).
