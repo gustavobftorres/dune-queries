@@ -2246,16 +2246,10 @@ query_ids:
     category: pools/overview
   - id: 4599903
     category: volume
-  - id: 4600099
-    category: dashboards/protocol_overview
   - id: 4600102
     category: volume
-  - id: 4600227
-    category: dashboards/protocol_overview
   - id: 4600250
     category: volume
-  - id: 4605635
-    category: dashboards/protocol_overview
   - id: 4607004
     category: token
   - id: 4607005
@@ -2656,8 +2650,6 @@ query_ids:
     category: dashboards/protocol_overview
   - id: 5874871
     category: pools/overview
-  - id: 5875552
-    category: dashboards/protocol_overview
   - id: 5875682
     category: dashboards/protocol_overview
   - id: 5882946
