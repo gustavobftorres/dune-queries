@@ -47,12 +47,8 @@ balancer/                 Balancer protocol queries
     composed/               Query-on-query composition helpers
     selectors/              Selected/calendars/labels/channels helpers
     qa/                     Debug, tests, expected-vs-current checks
-    legacy/                 Temporary bucket during migration
+    legacy/                 Catch-all for hard-to-classify legacy queries
   views/                  Shared intermediate queries (Query Views)
-  # Legacy directories from initial scrape (kept during migration):
-  volume/ liquidity/ fees/ tvl/ revenue/ token/ governance/
-  pools/overview pools/weighted pools/stable pools/boosted pools/lbp
-  dashboards/protocol_overview
 cowamm/                   CoW AMM queries (Balancer CoW AMM product)
 uploads/                  CSV files uploaded as Dune tables
 scripts/                  Tooling for query management
@@ -66,7 +62,6 @@ All query file names follow the pattern `descriptive_name_{queryId}.sql`. The qu
 - Put co-primary/cross-metric outputs (`*_vs_*`, `*_and_*`, ratio, correlation, benchmark) under `balancer/analysis/...`.
 - Put helper/composition/selector/debug queries under `balancer/support/...`.
 - Keep `balancer/views/` for reusable Query Views consumed by downstream queries.
-- Legacy directories remain valid while we migrate older files incrementally.
 
 ## Migrating existing Balancer queries from Dune
 
