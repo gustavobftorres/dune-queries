@@ -6,20 +6,48 @@ Repository for managing Balancer protocol Dune Analytics queries. Changes merged
 
 ```
 balancer/                 Balancer protocol queries
-  volume/                 Trading volume metrics
-  tvl/                    Total Value Locked
-  fees/                   Swap fees, protocol fees
-  revenue/                Protocol revenue
-  pools/                  Pool-level analytics
-    overview/               Pool listings, general stats
-    weighted/               Weighted pools
-    stable/                 Stable / composable stable pools
-    boosted/                Boosted pools (ERC-4626)
-    lbp/                    Liquidity Bootstrapping Pools
-  liquidity/              LP analytics, yield, impermanent loss
-  governance/             veBAL, gauges, voting incentives
-  token/                  BAL token supply, distribution, price
-  dashboards/             Dashboard-specific composite queries
+  metrics/                Primary metric queries (canonical home for new work)
+    volume/
+      protocol/             Protocol-level volume
+      pool/                 Pool-level volume
+      token/                Token-pair / token-level volume
+      source/               Aggregator/source attribution
+      trader/               User / cohort / trader segments
+    liquidity/
+      protocol/             Protocol-level liquidity
+      pool/                 Pool-level liquidity
+      token/                Token liquidity views
+      utilization/          Liquidity utilization-focused queries
+    fees/
+      swap/                 Swap fee metrics
+      protocol/             Protocol fee metrics
+      lp/                   LP fee metrics
+    tvl/
+      protocol/             Protocol TVL
+      pool/                 Pool TVL
+      integration/          Integration/project TVL
+    revenue/
+      protocol/             Protocol revenue
+      lp/                   LP revenue
+    token/
+      price/                Token pricing
+      supply/               Supply / emissions / minting
+      holders/              Holder distribution and cohorts
+      flows/                Inflow/outflow and transfer flows
+    governance/
+      vebal/                veBAL metrics
+      gauges/               Gauge metrics
+      voting/               Voting and delegation analytics
+      incentives/           Incentive programs and bribes
+  analysis/               Cross-metric analytics (new canonical home)
+    comparisons/            A vs B benchmarks
+    relationships/          Metric-vs-metric, ratio, correlation
+    distributions/          Breakdowns, shares, top-N distributions
+  support/                Helper/composition queries (non-primary metrics)
+    composed/               Query-on-query composition helpers
+    selectors/              Selected/calendars/labels/channels helpers
+    qa/                     Debug, tests, expected-vs-current checks
+    legacy/                 Catch-all for hard-to-classify legacy queries
   views/                  Shared intermediate queries (Query Views)
 cowamm/                   CoW AMM queries (Balancer CoW AMM product)
 uploads/                  CSV files uploaded as Dune tables
@@ -27,6 +55,13 @@ scripts/                  Tooling for query management
 ```
 
 All query file names follow the pattern `descriptive_name_{queryId}.sql`. The query ID is the numeric ID from the Dune URL (`dune.com/queries/{id}`).
+
+### Placement Rules (New Queries)
+
+- Put primary metric queries under `balancer/metrics/<metric>/<scope>/...`.
+- Put co-primary/cross-metric outputs (`*_vs_*`, `*_and_*`, ratio, correlation, benchmark) under `balancer/analysis/...`.
+- Put helper/composition/selector/debug queries under `balancer/support/...`.
+- Keep `balancer/views/` for reusable Query Views consumed by downstream queries.
 
 ## Migrating existing Balancer queries from Dune
 
@@ -62,18 +97,18 @@ pip install -r scripts/requirements.txt
 2. Add the ID to `queries.yml` with the target category:
    ```yaml
    - id: 1234567
-     category: volume
+     category: metrics/volume/protocol
    ```
 3. Pull it into the repo:
    ```bash
    python scripts/pull_from_dune.py
    ```
-   Or create the file manually: `balancer/volume/descriptive_name_1234567.sql`
+   Or create the file manually: `balancer/metrics/volume/protocol/descriptive_name_1234567.sql`
 4. Ensure the file starts with `-- part of a query repo` (the pull script adds this automatically).
 5. If the query uses new Jinja parameters (e.g., `{{pool_type}}`), add them to the relevant `.sqlfluff` context file.
 6. Test locally:
    ```bash
-   sqlfluff lint balancer/volume/descriptive_name_1234567.sql
+   sqlfluff lint balancer/metrics/volume/protocol/descriptive_name_1234567.sql
    python scripts/preview_query.py 1234567
    ```
 7. Open a PR. SQLFluff runs automatically. Follow the PR template to document your changes.

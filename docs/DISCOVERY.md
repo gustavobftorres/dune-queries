@@ -20,7 +20,7 @@ If your team’s queries are listed at:
 
 1. **Playwright** — [`scraping/list_workspace_queries.py`](../scraping/list_workspace_queries.py) opens the workspace URL in Chromium, uses your Dune login (or a saved `storage_state.json` — **gitignored**), scrolls until the list stabilizes, collects `/queries/<id>` links, and writes YAML or plain IDs. See [`scraping/README.md`](../scraping/README.md).
 2. **Internal API (optional)** — In Chrome DevTools → Network, reload the workspace page and find the XHR/fetch response that contains query IDs. If it accepts your API key or session cookie, a small `requests` script could call it. Treat this as **fragile**; never commit cookies or HAR files.
-3. **Categories** — The workspace UI does not assign `balancer/volume` vs `balancer/tvl`. Use `--default-category` for a bulk placeholder, then edit `queries.yml`, or export `--format ids` and assign `category:` by hand.
+3. **Categories** — The workspace UI does not assign repo taxonomy categories. Use `--default-category` for a bulk placeholder, then edit `queries.yml`, or export `--format ids` and assign `category:` by hand.
 
 If the scraper breaks after a Dune UI change, fall back to Step 2 below.
 
@@ -30,8 +30,8 @@ Use these as the primary inventory. Open each dashboard while logged into Dune, 
 
 | Theme | URL | Suggested `category` in `queries.yml` |
 |-------|-----|--------------------------------------|
-| Protocol overview | [dune.com/balancer/overview](https://dune.com/balancer/overview) | `dashboards/protocol_overview` or metric-specific (`volume`, `tvl`, …) |
-| Pools | [dune.com/balancer/pools](https://dune.com/balancer/pools) | `pools/overview` or `dashboards/pool_explorer` |
+| Protocol overview | [dune.com/balancer/overview](https://dune.com/balancer/overview) | metric-specific (for example `metrics/volume/protocol`) or cross-metric `analysis/*` |
+| Pools | [dune.com/balancer/pools](https://dune.com/balancer/pools) | pool-scoped metrics (for example `metrics/liquidity/pool`, `metrics/tvl/pool`) |
 | CoW AMM (official) | [dune.com/balancer/balancer-cowswap-amm](https://dune.com/balancer/balancer-cowswap-amm) | overlaps `cowamm/` (already in manifest) |
 | Team profile | [dune.com/balancer](https://dune.com/balancer) / [dune.com/balancerlabs](https://dune.com/balancerlabs) | browse linked dashboards and queries |
 
@@ -60,7 +60,7 @@ For each discovered query:
 
 ```yaml
   - id: 1234567
-    category: volume   # must match a path under balancer/, e.g. pools/weighted
+    category: metrics/volume/protocol   # must match a path under balancer/, e.g. analysis/comparisons
 ```
 
 Use the folder layout under `balancer/` (see [README](../README.md)). CoW AMM queries already tracked under `cowamm/` can stay as bare integers in the manifest.
