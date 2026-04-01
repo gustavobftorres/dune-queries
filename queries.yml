@@ -719,7 +719,7 @@ query_ids:
   - id: 2320278
     category: governance
   - id: 2330097
-    category: dashboards/protocol_overview
+    category: support/selectors
   - id: 2410625
     category: fees
   - id: 2414437
@@ -731,7 +731,7 @@ query_ids:
   - id: 2441394
     category: dashboards/protocol_overview
   - id: 2478528
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2484202
     category: dashboards/protocol_overview
   - id: 2484350
@@ -895,7 +895,7 @@ query_ids:
   - id: 2655648
     category: fees
   - id: 2655650
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2657401
     category: volume
   - id: 2658274
@@ -1003,7 +1003,7 @@ query_ids:
   - id: 2846023
     category: token
   - id: 2846430
-    category: dashboards/protocol_overview
+    category: support/selectors
   - id: 2856125
     category: dashboards/protocol_overview
   - id: 2856297
@@ -1061,31 +1061,31 @@ query_ids:
   - id: 2996010
     category: volume
   - id: 2998457
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2998465
     category: volume
   - id: 2998487
     category: dashboards/protocol_overview
   - id: 2998828
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2998829
     category: volume
   - id: 2999200
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2999209
     category: volume
   - id: 2999836
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2999842
     category: volume
   - id: 2999890
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 2999893
     category: volume
   - id: 2999897
     category: pools/overview
   - id: 3004790
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 3008193
     category: volume
   - id: 3032958
@@ -1093,7 +1093,7 @@ query_ids:
   - id: 3033130
     category: volume
   - id: 3033138
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 3041286
     category: pools/overview
   - id: 3051113
@@ -1565,7 +1565,7 @@ query_ids:
   - id: 3698929
     category: governance
   - id: 3699365
-    category: dashboards/protocol_overview
+    category: support/composed
   - id: 3701027
     category: pools/overview
   - id: 3702727
