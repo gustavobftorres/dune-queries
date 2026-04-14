@@ -136,6 +136,22 @@ For tips on writing efficient queries, see the [Dune guide](https://docs.dune.co
 
 - **On PR**: [SQLFluff](https://sqlfluff.com/) lints changed SQL files. The [nitpicker](https://github.com/ethanis/nitpicker) bot flags common issues (e.g., using deprecated `prices.usd`, missing partition filters).
 - **On merge to `main`**: Changed `.sql` files are synced to Dune via the [`bh2smith/dune-update`](https://github.com/bh2smith/dune-update) GitHub Action. Changed CSVs in `uploads/` are uploaded via `upload_to_dune.py`.
+- **Nightly (`02:00` America/Sao_Paulo / `05:00` UTC)**: `sync_from_dune.yml` runs `scripts/sync_from_dune_incremental.py` to pull UI-created/updated queries from Dune back into the repo.
+
+## Nightly Dune -> Repo Sync
+
+- Workflow: `.github/workflows/sync_from_dune.yml`
+- Script: `scripts/sync_from_dune_incremental.py`
+- Required secrets/env in GitHub Actions:
+  - `DUNE_API_KEY` (team-context key)
+  - `GITHUB_TOKEN` (for previous successful-run watermark and fallback PR creation)
+  - `SYNC_OWNER_ALLOWLIST` (comma-separated owner/team tokens; current workflow uses `balancer,balancerlabs`)
+  - `SYNC_REQUIRE_OWNER_MATCH` (`true` in CI to drop rows without matching owner/team metadata)
+- Behavior:
+  - New query IDs discovered on Dune are added to `queries.yml` as `category: unclassified`.
+  - New SQL files are created under `balancer/unclassified/`.
+  - Managed query IDs updated on Dune overwrite local SQL files when content differs.
+  - The job tries direct commit/push to `main`; if blocked (for example by branch protection), it pushes a `codex/...` branch and opens a PR automatically.
 
 ### Important Notes
 

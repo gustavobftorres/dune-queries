@@ -2,13 +2,22 @@
 
 This document records how we catalog existing Balancer-related Dune content and how to populate [`queries.yml`](../queries.yml) before running [`scripts/pull_from_dune.py`](../scripts/pull_from_dune.py).
 
-**Last updated:** 2026-03-26
+**Last updated:** 2026-04-10
 
-## Why query IDs are not scraped here
+## Primary discovery path: Query Management API
 
-Dune dashboard pages are rendered in the browser; a plain HTTP fetch does not include embedded query IDs. There is no single **documented** public API that returns “all query IDs for team X” using only `DUNE_API_KEY`. Discovery is therefore **manual**, **API-assisted**, or **browser-automated** (see below).
+The default discovery path is now the documented Dune Query Management API:
 
-## Team workspace: automating the full query list
+- `GET /api/v1/queries` to list query metadata (`id`, `created_at`, `updated_at`, owner, etc.)
+- `GET /api/v1/query/{id}` to fetch SQL + details for individual queries
+
+This repository uses that API in CI via [`scripts/sync_from_dune_incremental.py`](../scripts/sync_from_dune_incremental.py) and `.github/workflows/sync_from_dune.yml` to keep repo and Dune UI aligned.
+
+## Browser scraping is now fallback-only
+
+If API behavior changes, or if you need a one-off manual inventory from a specific workspace UI page, use the Playwright helper in [`scraping/`](../scraping/).
+
+### Team workspace fallback: automating the full query list
 
 If your team’s queries are listed at:
 
@@ -16,13 +25,13 @@ If your team’s queries are listed at:
 
 (e.g. [balancer team queries](https://dune.com/workspace/t/balancer/queries)), you can avoid opening each query by hand.
 
-**Implemented: [`scraping/`](../scraping/)** (one-time bootstrap; not used in CI)
+**Implemented: [`scraping/`](../scraping/)** (fallback tool; not used in CI)
 
 1. **Playwright** — [`scraping/list_workspace_queries.py`](../scraping/list_workspace_queries.py) opens the workspace URL in Chromium, uses your Dune login (or a saved `storage_state.json` — **gitignored**), scrolls until the list stabilizes, collects `/queries/<id>` links, and writes YAML or plain IDs. See [`scraping/README.md`](../scraping/README.md).
 2. **Internal API (optional)** — In Chrome DevTools → Network, reload the workspace page and find the XHR/fetch response that contains query IDs. If it accepts your API key or session cookie, a small `requests` script could call it. Treat this as **fragile**; never commit cookies or HAR files.
 3. **Categories** — The workspace UI does not assign repo taxonomy categories. Use `--default-category` for a bulk placeholder, then edit `queries.yml`, or export `--format ids` and assign `category:` by hand.
 
-If the scraper breaks after a Dune UI change, fall back to Step 2 below.
+If the scraper breaks after a Dune UI change, use manual discovery steps below.
 
 ## Step 1: Official Balancer dashboards (starting points)
 
@@ -41,9 +50,10 @@ Also search Dune for “Balancer”, “veBAL”, “Balancer governance”, “
 
 Choose one workflow:
 
-1. **Dune “GitHub” / query repo export** (recommended by [DuneQueryRepo](https://github.com/duneanalytics/DuneQueryRepo)): From the dashboard editor, use the flow that lists query IDs for syncing to a repo (if available in your Dune UI version).
-2. **Per-widget**: Click each visualization → “View query” → copy the numeric ID from `https://dune.com/queries/<id>/...`.
-3. **Browser devtools**: On the dashboard, use the Network tab while the dashboard loads; filter for API responses that reference `query_id` or `/queries/` (works when you are logged in).
+1. **API-first (recommended)**: Use `GET /api/v1/queries` with your team API key and collect IDs from response metadata.
+2. **Dune “GitHub” / query repo export** (recommended by [DuneQueryRepo](https://github.com/duneanalytics/DuneQueryRepo)): From the dashboard editor, use the flow that lists query IDs for syncing to a repo (if available in your Dune UI version).
+3. **Per-widget**: Click each visualization → “View query” → copy the numeric ID from `https://dune.com/queries/<id>/...`.
+4. **Browser devtools**: On the dashboard, use the Network tab while the dashboard loads; filter for API responses that reference `query_id` or `/queries/` (works when you are logged in).
 
 ## Step 3: Ownership check
 
