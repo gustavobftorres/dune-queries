@@ -1,0 +1,11 @@
+# Curated dashboard/category priors for classifier.
+# Keys can be dashboard numeric IDs (as strings) or dashboard slugs.
+
+dashboard_overrides:
+  overview: metrics/volume/protocol
+  pools: metrics/liquidity/pool
+  balancer-cowswap-amm: metrics/volume/source
+
+# Strongest signal: explicit query ID override.
+# Keep this sparse and intentionally curated.
+query_overrides: {}

@@ -35,10 +35,23 @@ jobs:
           SYNC_LOOKBACK_HOURS: "30"
           SYNC_OWNER_ALLOWLIST: "balancer,balancerlabs"
           SYNC_REQUIRE_OWNER_MATCH: "true"
+          SYNC_STRICT_NO_EXECUTION: "true"
+          SYNC_LEGACY_INACTIVE_DAYS: "180"
+          SYNC_LLM_FALLBACK_ENABLED: "true"
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python -u scripts/sync_from_dune_incremental.py \
             --workflow-file sync_from_dune.yml \
             --summary-path /tmp/sync_from_dune_summary.json
+
+      - name: Upload sync summary artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-from-dune-summary
+          path: /tmp/sync_from_dune_summary.json
+          if-no-files-found: ignore
+          retention-days: 30
 
       - name: Detect repository changes
         id: detect_changes

@@ -41,13 +41,19 @@ SELECT * FROM (values
 (0x111111125434b319222cdbf8c261674adb56f3ae, '1inch'),
 (0x111111125421cA6dc452d289314280a0f8842A65, '1inch'),
 (0xad3b67BCA8935Cb510C8D18bD45F0b94F54A968f, '1inch'),
+(0xad3b67bca8935cb510c8d18bd45f0b94f54a968f, '1inch'),
+(0x00000688768803bbd44095770895ad27ad6b0d95, '1inch'),
 (0x872fbcb1b582e8cd0d0dd4327fbfa0b4c2730995, 'Aave'),
 (0x7d2768de32b0b80b7a3454c06bdac94a69ddc7a9, 'Aave'),
 (0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2, 'Aave'),
 (0xADC0A53095A0af87F3aa29FE0715B5c28016364e, 'Aave'),
 (0x9799b475dec92bd99bbdd943013325c36157f383, 'Bancor'),
 (0xBeb09beB09e95E6FEBf0d6EEb1d0D46d1013CC3C, 'Bebop'),
+(0xbeef02961503351625926ea9a11ae13b29f5c555, 'Bebop'),
+(0xb300000b72deaeb607a12d5f54773d1c19c7028d, 'Binance Router'),
 (0x9008d19f58aabd9ed0d60971565aa8510560ab41, 'CoWSwap'),
+(0x3980daa7eaad0b7e0c53cfc5c2760037270da54d, 'CoWSwap'),
+(0x1921e0ff550c09066edd4df05d304151c45e77de, 'CoWSwap'),
 (0x663DC15D3C1aC63ff12E45Ab68FeA3F0a883C251, 'deBridge'),
 (0x50f9bDe1c76bba997a5d6e7FEFff695ec8536194, 'DODO'),
 (0xa356867fdcea8e71aeaf87805808803806231fdc, 'DODO'),
@@ -78,6 +84,7 @@ SELECT * FROM (values
 (0x617dee16b86534a5d792a4d7a62fb491b544111e, 'Kyber'),
 (0xdcdbf71a870cc60c6f9b621e28a7d3ffd6dd4965, 'Lido'),
 (0x89c6340b1a1f4b25d36cd8b063d49045caf3f818, 'Li.Fi'),
+(0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae, 'Li.Fi'),
 (0xa6e941eab67569ca4522f70d343714ff51d571c4, 'Magpie'),
 (0xcb1b068cb3937feaa2106d430af49681982626bc, 'Maker'),
 (0x95d69f35547f169639e0f5969b746d9b634d3571, 'Maker'),
@@ -145,7 +152,7 @@ SELECT * FROM (values
 (0x5C6fb490BDFD3246EB0bB062c168DeCAF4bD9FDd, 'Direct Router'),
 (0xedeafdef0901ef74ee28c207be8424d3b353d97a, 'Odos')
 )
-    as t (address, name))
+as t (address, name))
     
 SELECT al.* FROM arbitrage_labels al
 LEFT JOIN routers r ON al.address = r.address

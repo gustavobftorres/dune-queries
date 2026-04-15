@@ -142,16 +142,37 @@ For tips on writing efficient queries, see the [Dune guide](https://docs.dune.co
 
 - Workflow: `.github/workflows/sync_from_dune.yml`
 - Script: `scripts/sync_from_dune_incremental.py`
+- Classifier config: `scripts/classification_rules.yml`
+- Dashboard priors: `scripts/dashboard_category_map.yml`
 - Required secrets/env in GitHub Actions:
   - `DUNE_API_KEY` (team-context key)
   - `GITHUB_TOKEN` (for previous successful-run watermark and fallback PR creation)
   - `SYNC_OWNER_ALLOWLIST` (comma-separated owner/team tokens; current workflow uses `balancer,balancerlabs`)
   - `SYNC_REQUIRE_OWNER_MATCH` (`true` in CI to drop rows without matching owner/team metadata)
+  - Optional LLM fallback: `SYNC_LLM_FALLBACK_ENABLED`, `SYNC_LLM_MAX_CALLS_PER_RUN`, `OPENAI_API_KEY`
 - Behavior:
-  - New query IDs discovered on Dune are added to `queries.yml` as `category: unclassified`.
-  - New SQL files are created under `balancer/unclassified/`.
+  - New query IDs discovered on Dune are owner-filtered first, then auto-classified with deterministic rules.
+  - High-confidence new queries are created directly in taxonomy folders under `balancer/`.
+  - Low-confidence queries fall back to `balancer/unclassified/`.
+  - Query names containing `test` or `teste` are auto-routed to `balancer/support/legacy/`.
+  - Inactive (180+ days) new or currently unclassified queries are auto-routed to `balancer/support/legacy/`.
   - Managed query IDs updated on Dune overwrite local SQL files when content differs.
+  - Strict endpoint allowlist is enforced: no execution/export/result endpoints are called.
+  - Daily usage telemetry is recorded in the sync summary (`usage_before`, `usage_after`, usage deltas).
   - The job tries direct commit/push to `main`; if blocked (for example by branch protection), it pushes a `codex/...` branch and opens a PR automatically.
+
+## Rule Learner (Proposal-Only)
+
+- Workflow: `.github/workflows/sync_rule_learner.yml`
+- Script: `scripts/learn_classification_rules.py`
+- Input: recent `sync-from-dune-summary` artifacts from successful `sync_from_dune.yml` runs.
+- Output: `scripts/classification_rule_proposals.yml` in a PR.
+- Guardrails:
+  - minimum support in 30-day window,
+  - precision threshold,
+  - stability across multiple runs,
+  - noisy token exclusions.
+- No auto-merge and no direct mutation of runtime rules in CI.
 
 ### Important Notes
 

@@ -1,0 +1,153 @@
+settings:
+  # High-confidence gate.
+  high_confidence_threshold: 0.62
+  min_margin: 0.10
+  min_signal_votes: 1
+  require_sql_or_dashboard: false
+
+  # LLM fallback acceptance gate.
+  llm_confidence_threshold: 0.45
+  llm_top_k_candidates: 5
+
+  # Inactive queries are routed to support/legacy only when query is new
+  # or currently unclassified.
+  legacy_inactive_days: 180
+
+  # Rule-learner proposal gates.
+  learner_support_threshold: 8
+  learner_precision_threshold: 0.90
+  learner_stability_runs: 2
+
+signal_weights:
+  name: 0.45
+  sql: 0.40
+  dashboard: 0.15
+
+special_name_rules:
+  - pattern: "(^|[^a-z])(test|teste)([^a-z]|$)"
+    category: support/legacy
+    case_insensitive: true
+  - pattern: "^matchorders?(?:_|$)"
+    category: metrics/volume/source
+    case_insensitive: true
+  - pattern: "^custom_lending(?:_|$)"
+    category: support/qa
+    case_insensitive: true
+
+name_rules:
+  - pattern: "(volume|swap volume|trading volume)"
+    category: metrics/volume/protocol
+    weight: 0.8
+  - pattern: "(source|solver|aggregator|cow|kyber)"
+    category: metrics/volume/source
+    weight: 0.8
+  - pattern: "(trader|wallet|holder leaderboard|accumulator)"
+    category: metrics/volume/trader
+    weight: 0.7
+  - pattern: "(pool fee|protocol fee|fees)"
+    category: metrics/fees/protocol
+    weight: 0.75
+  - pattern: "(lp fee)"
+    category: metrics/fees/lp
+    weight: 0.8
+  - pattern: "(liquidity|depth|utilization)"
+    category: metrics/liquidity/protocol
+    weight: 0.7
+  - pattern: "(tvl|total value locked)"
+    category: metrics/tvl/protocol
+    weight: 0.8
+  - pattern: "(revenue|earnings)"
+    category: metrics/revenue/protocol
+    weight: 0.8
+  - pattern: "(vebal|gauge|bribe|incentive|vote)"
+    category: metrics/governance/vebal
+    weight: 0.75
+  - pattern: "(staking|stacking|staked|stake)"
+    category: metrics/governance/vebal
+    weight: 0.8
+  - pattern: "(\\bbal\\b|balancer token|\\bbpt\\b)"
+    category: metrics/token/flows
+    weight: 0.8
+  - pattern: "(compare|comparison|versus|vs\\b|markout|breakdown)"
+    category: analysis/comparisons
+    weight: 0.7
+  - pattern: "(^|[^a-z0-9])(curve|pinecore|julswap|compound|aave|uniswap|sushiswap|etherdelta)([^a-z0-9]|$)"
+    category: analysis/comparisons
+    weight: 0.75
+  - pattern: "(distribution|share|top\\s*\\d+|leaderboard)"
+    category: analysis/distributions
+    weight: 0.75
+  - pattern: "(ratio|correlation|relationship)"
+    category: analysis/relationships
+    weight: 0.75
+  - pattern: "(selector|calendar|channel|label)"
+    category: support/selectors
+    weight: 0.75
+  - pattern: "(debug|qa|check|validation)"
+    category: support/qa
+    weight: 0.8
+  - pattern: "(view|composed|query[_\\s-]?view)"
+    category: support/composed
+    weight: 0.75
+  - pattern: "(order|orders|limit_order|matchorder|executeorder|conditional|otc)"
+    category: metrics/volume/source
+    weight: 0.85
+  - pattern: "(pmusd|crvusd|frxusd|usdc)"
+    category: metrics/volume/source
+    weight: 0.8
+  - pattern: "(deposit|deposits|balance|flow)"
+    category: metrics/token/flows
+    weight: 0.8
+  - pattern: "(monitor|leaderboard|summary|accumulation)"
+    category: analysis/distributions
+    weight: 0.85
+  - pattern: "(chain|chains|coverage)"
+    category: analysis/comparisons
+    weight: 0.7
+  - pattern: "\\blending\\b"
+    category: support/qa
+    weight: 0.85
+  - pattern: "(oracle|clones|overflow|donation|exercise|surplus|perp)"
+    category: support/qa
+    weight: 0.8
+  - pattern: "(skytest|custom|reclamm)"
+    category: support/qa
+    weight: 0.7
+  - pattern: "^t$"
+    category: support/legacy
+    weight: 0.95
+
+sql_rules:
+  - pattern: "\\bfrom\\s+dex\\.trades\\b|\\bjoin\\s+dex\\.trades\\b"
+    category: metrics/volume/protocol
+    weight: 0.9
+  - pattern: "\\bbalancer\\.trades\\b"
+    category: metrics/volume/protocol
+    weight: 1.0
+  - pattern: "\\bbalancer\\.liquidity\\b|\\bpools_metrics_daily\\b"
+    category: metrics/liquidity/protocol
+    weight: 0.95
+  - pattern: "\\bbalancer\\.protocol_fees\\b|\\bpools_fees\\b"
+    category: metrics/fees/protocol
+    weight: 0.95
+  - pattern: "\\bprices\\.usd\\b|\\bprices\\.minute\\b"
+    category: metrics/token/price
+    weight: 0.75
+  - pattern: "\\berc20\\.|\\btransfers\\b|\\btoken_balance\\b"
+    category: metrics/token/flows
+    weight: 0.65
+  - pattern: "\\bquery_\\d+\\b"
+    category: support/composed
+    weight: 0.8
+  - pattern: "\\bwith\\s+debug\\b|\\blimit\\s+10\\b"
+    category: support/qa
+    weight: 0.55
+  - pattern: "\\blimit[_ ]?order\\b|\\bmatchorders?\\b|\\bexecuteorders?\\b|\\bconditional\\b"
+    category: metrics/volume/source
+    weight: 0.85
+  - pattern: "\\bdepositeth\\b|\\bdeposits?\\b|\\bbalance\\b"
+    category: metrics/token/flows
+    weight: 0.75
+  - pattern: "\\boracle\\b|\\blending\\b|\\bfork\\b|\\bclone\\b|\\boverflow\\b"
+    category: support/qa
+    weight: 0.75

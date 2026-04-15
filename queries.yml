@@ -2903,3 +2903,168 @@ query_ids:
   #     category: analysis/comparisons
   #
   # Categories must match a subdirectory under balancer/ (e.g. metrics/fees/swap).
+
+  - id: 4600099
+    category: support/legacy
+
+  - id: 4600227
+    category: metrics/volume/protocol
+
+  - id: 4605635
+    category: support/legacy
+
+  - id: 6916137
+    category: metrics/volume/source
+
+  - id: 6916195
+    category: metrics/volume/source
+
+  - id: 6926069
+    category: support/legacy
+
+  - id: 6926297
+    category: metrics/volume/source
+
+  - id: 6926437
+    category: metrics/volume/source
+
+  - id: 6926441
+    category: metrics/volume/source
+
+  - id: 6926838
+    category: support/legacy
+
+  - id: 6926858
+    category: support/legacy
+
+  - id: 6927109
+    category: metrics/volume/protocol
+
+  - id: 6928061
+    category: support/legacy
+
+  - id: 6951241
+    category: support/qa
+
+  - id: 6951244
+    category: unclassified
+
+  - id: 6951249
+    category: unclassified
+
+  - id: 6951274
+    category: support/legacy
+
+  - id: 6951276
+    category: support/qa
+
+  - id: 6951279
+    category: support/qa
+
+  - id: 6951283
+    category: support/qa
+
+  - id: 6951305
+    category: unclassified
+
+  - id: 6951311
+    category: support/qa
+
+  - id: 6951733
+    category: unclassified
+
+  - id: 6951772
+    category: unclassified
+
+  - id: 6952069
+    category: unclassified
+
+  - id: 6952112
+    category: unclassified
+
+  - id: 6952113
+    category: unclassified
+
+  - id: 6952115
+    category: unclassified
+
+  - id: 6954154
+    category: unclassified
+
+  - id: 6955027
+    category: unclassified
+
+  - id: 6955070
+    category: unclassified
+
+  - id: 6955255
+    category: unclassified
+
+  - id: 6955261
+    category: unclassified
+
+  - id: 6956530
+    category: unclassified
+
+  - id: 6956558
+    category: analysis/comparisons
+
+  - id: 6956624
+    category: unclassified
+
+  - id: 6957425
+    category: metrics/volume/source
+
+  - id: 6957426
+    category: analysis/comparisons
+
+  - id: 6957432
+    category: unclassified
+
+  - id: 6957443
+    category: unclassified
+
+  - id: 6957451
+    category: unclassified
+
+  - id: 6957456
+    category: unclassified
+
+  - id: 6957462
+    category: unclassified
+
+  - id: 6957473
+    category: unclassified
+
+  - id: 6957533
+    category: metrics/volume/source
+
+  - id: 6957537
+    category: unclassified
+
+  - id: 6957544
+    category: metrics/volume/source
+
+  - id: 6957610
+    category: metrics/volume/source
+
+  - id: 6957614
+    category: unclassified
+
+  - id: 6957618
+    category: unclassified
+
+  - id: 6957625
+    category: unclassified
+
+  - id: 6957887
+    category: metrics/token/flows
+
+  - id: 6957888
+    category: metrics/token/flows
+
+  - id: 6957889
+    category: metrics/token/flows
+
+  - id: 6960826
+    category: metrics/token/flows

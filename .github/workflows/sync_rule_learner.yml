@@ -1,0 +1,128 @@
+name: Sync Rule Learner
+
+on:
+  schedule:
+    - cron: "20 6 * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+
+jobs:
+  propose-rule-updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r scripts/requirements.txt
+
+      - name: Build rule proposals from recent sync summaries
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          python -u scripts/learn_classification_rules.py \
+            --workflow-file sync_from_dune.yml \
+            --days 30
+
+      - name: Detect repository changes
+        id: detect_changes
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure git
+        if: steps.detect_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit proposal changes
+        if: steps.detect_changes.outputs.has_changes == 'true'
+        env:
+          BRANCH_NAME: codex/classification-rule-learner
+        run: |
+          git checkout -B "${BRANCH_NAME}"
+          git add scripts/classification_rule_proposals.yml
+          git commit -m "chore(sync): propose classification rule updates"
+
+      - name: Push proposal branch
+        if: steps.detect_changes.outputs.has_changes == 'true'
+        env:
+          BRANCH_NAME: codex/classification-rule-learner
+        run: |
+          git push --force-with-lease origin HEAD:"${BRANCH_NAME}"
+
+      - name: Open or update proposal PR
+        if: steps.detect_changes.outputs.has_changes == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          BRANCH_NAME: codex/classification-rule-learner
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+
+          token = os.environ["GITHUB_TOKEN"]
+          repo = os.environ["GITHUB_REPOSITORY"]
+          branch = os.environ["BRANCH_NAME"]
+          owner = repo.split("/")[0]
+
+          def request_json(url: str, method: str = "GET", payload: dict | None = None):
+            data = None
+            if payload is not None:
+              data = json.dumps(payload).encode("utf-8")
+            req = urllib.request.Request(
+                url,
+                data=data,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/vnd.github+json",
+                    "User-Agent": "balancer-rule-learner/1.0",
+                    "Content-Type": "application/json",
+                },
+                method=method,
+            )
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+
+          q = urllib.parse.urlencode({"state": "open", "head": f"{owner}:{branch}", "base": "main"})
+          existing = request_json(f"https://api.github.com/repos/{repo}/pulls?{q}", method="GET")
+          if isinstance(existing, list) and existing:
+            print(f"Rule proposal PR already open: {existing[0].get('html_url')}")
+            raise SystemExit(0)
+
+          payload = {
+              "title": "chore(sync): propose classification rule updates",
+              "head": branch,
+              "base": "main",
+              "body": (
+                  "Automated rule-learner proposal.\n\n"
+                  "This PR is generated from recent nightly sync summaries and only proposes "
+                  "new classification patterns that passed support/precision/stability gates.\n\n"
+                  "- No auto-merge\n"
+                  "- No runtime rules are changed automatically"
+              ),
+              "maintainer_can_modify": True,
+          }
+          created = request_json(f"https://api.github.com/repos/{repo}/pulls", method="POST", payload=payload)
+          print(f"Created PR: {created.get('html_url')}")
+          PY

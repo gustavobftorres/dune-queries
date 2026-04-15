@@ -13,6 +13,8 @@ The default discovery path is now the documented Dune Query Management API:
 
 This repository uses that API in CI via [`scripts/sync_from_dune_incremental.py`](../scripts/sync_from_dune_incremental.py) and `.github/workflows/sync_from_dune.yml` to keep repo and Dune UI aligned.
 
+Classification is rule-first (see [`scripts/classification_rules.yml`](../scripts/classification_rules.yml)) with optional capped LLM fallback for ambiguous cases. A separate proposal-only learner job (`.github/workflows/sync_rule_learner.yml`) suggests rule additions in PRs.
+
 ## Browser scraping is now fallback-only
 
 If API behavior changes, or if you need a one-off manual inventory from a specific workspace UI page, use the Playwright helper in [`scraping/`](../scraping/).
